@@ -164,5 +164,8 @@
 </script>
 
 <style scoped>
-  /* nic tu */
+  .episodes-nav a {
+    display: flex;
+    align-items: center;    
+  }
 </style>

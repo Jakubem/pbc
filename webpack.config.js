@@ -73,6 +73,7 @@ module.exports = {
         { from: 'fonts', to: 'fonts' },
         { from: 'images', to: 'images' },
         { from: 'js/productbclub.js', to: 'productbclub.js' },
+        // for now
         { from: 'js/episode.json', to: 'episode.json' },
       ]),
     new MiniCssExtractPlugin({
