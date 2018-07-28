@@ -1,7 +1,7 @@
 ## [The Product Breakfast Club](https://open.spotify.com/show/1qvzYYHQko5sMuKWmoundZ) website project
 
 ### Setup:
-> `npm i` - install dependencies
+> `npm i` - install dependencies <br>
 > `npm run dev` - Compile frontend to `dist` folder
 
 ### Directory structure:
