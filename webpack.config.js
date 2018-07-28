@@ -69,11 +69,6 @@ module.exports = {
       template: './episode.html',
       filename: './episode.html'
     }),
-    new HtmlWebpackPlugin({
-      hash: false,
-      template: './vue-index.html',
-      filename: './vue-index.html'
-    }),
     new CopyWebpackPlugin([
         { from: 'fonts', to: 'fonts' },
         { from: 'images', to: 'images' },
