@@ -138,10 +138,14 @@ p {
   color: #23221f;
 }
 
-// pls fix
-// .nav-arr:hover {
-//   fill: #ffb900;
-// }
+.nav-arr {
+  -webkit-transition: color 300ms ease;
+  transition: fill 300ms ease;
+}
+
+.btn.btn-text:hover > .nav-arr {
+  fill: #ffb900;
+}
 
 .btn.btn-text:hover {
   color: #ffb900;
