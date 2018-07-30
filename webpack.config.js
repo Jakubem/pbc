@@ -45,8 +45,12 @@ module.exports = {
                 test: /\.(scss|css)$/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    { loader: "css-loader" },
-                    { loader: "sass-loader" }
+                    {
+                        loader: "css-loader"
+                    },
+                    {
+                        loader: "sass-loader"
+                    }
                 ],
             },
         ]
@@ -95,11 +99,23 @@ module.exports = {
             filename: './episode.html'
         }),
         new CopyWebpackPlugin([
-            { from: 'fonts', to: 'fonts' },
-            { from: 'images', to: 'images' },
-            { from: 'js/productbclub.js', to: 'productbclub.js' },
+           {
+                from: 'fonts',
+                to: 'fonts'
+            },
+            {
+                from: 'images',
+                to: 'images'
+            },
+            {
+                from: 'js/productbclub.js',
+                to: 'productbclub.js'
+            },
             // for now
-            { from: 'js/episode.json', to: 'episode.json' },
+            {
+                from: 'js/episode.json',
+                to: 'episode.json'
+            },
         ]),
         new MiniCssExtractPlugin({
             filename: "bundle.css",
