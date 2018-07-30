@@ -58,6 +58,13 @@ module.exports = {
             'vue$': 'vue/dist/vue.esm.js'
         }
     },
+    devServer: {
+        stats: 'errors-only',
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        port: 5500
+
+    },
     plugins: [
         new FriendlyErrorsWebpackPlugin({
             clearConsole: true,
