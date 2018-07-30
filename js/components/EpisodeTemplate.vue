@@ -1,33 +1,8 @@
 <template>
   <div>
-    <div class="header">
-      <div class="container navbar-container">
-        <a href="index.html" class="link-block-2 w-inline-block">
-          <img src="images/PBC-LOGO.svg" class="image">
-        </a>
-        <div class="navbar-nav">
-          <a href="index.html" class="btn btn-text btn-nav w-button">Home</a>
-          <a href="episodes.html" class="btn btn-text btn-nav w-button">episodes</a>
-          <a href="about.html" class="btn btn-text btn-nav w-button">about</a>
-          <div class="navbar-icons navbar-icons__header">
-            <a href="https://itunes.apple.com/de/podcast/the-product-breakfast-club/id1320916842?l=en&amp;mt=2&amp;i=1000395595606"
-              target="_blank" class="icon-link w-inline-block">
-              <img src="images/itunes-icon.svg" class="app-icon">
-            </a>
-            <a href="https://open.spotify.com/show/1qvzYYHQko5sMuKWmoundZ?si=hzuKMuYlRciD3M-6IjfCoQ" target="_blank" class="icon-link w-inline-block">
-              <img src="images/Spotify-Icon.svg" class="app-icon">
-            </a>
-            <a href="https://radiopublic.com/the-product-breakfast-club-WDpzqE" target="_blank" class="icon-link w-inline-block">
-              <img src="images/RadioPublic-Logo.png" class="app-icon">
-            </a>
-            <a href="https://www.stitcher.com/podcast/the-product-breakfast-club?refid=stpr" target="_blank" class="w-inline-block">
-              <img src="images/stitcher-icon.png" class="app-icon">
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="header-episode">
+    <pulse-loader v-if="loading === true" color="#ffb900" size="40px">
+    </pulse-loader>
+    <div v-if="loading === false" class="header-episode">
       <div class="container">
         <a href="episodes.html" class="text-link breadcrumbs">Back to All Episodes</a>
         <div class="grid">
@@ -107,10 +82,12 @@
 <script>
   import ArrowNext from './ArrowNext.vue';
   import ArrowPrev from './ArrowPrev.vue';
+  import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
   export default {
     components: {
       'arrow-next': ArrowNext,
       'arrow-prev': ArrowPrev,
+      PulseLoader
     },
     mounted: async function() {
     const params = new URLSearchParams(window.location.search.substring(1));
@@ -152,14 +129,21 @@
     if (selectedEpisode.no === 1) {
       this.firstEpisode = true;
     }
-  },
+    
+    document.onreadystatechange = () => {
+    if (document.readyState == "complete") {
+    this.loading = false;
+    }
+  }
+},
     data () {
       return {
         episode: {},
         hrefPrev: '',
         hrefNext: '',
         lastEpisode: false,
-        firstEpisode: false
+        firstEpisode: false,
+        loading: true
       }
     },
   }
@@ -169,5 +153,12 @@
   .episodes-nav a {
     display: flex;
     align-items: center;    
+  }
+  .v-spinner {
+    width: 100%;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>
