@@ -114,26 +114,28 @@
     },
     mounted: async function() {
     const params = new URLSearchParams(window.location.search.substring(1));
-    const epNumber = Number(params.get("episode"))
     const data = await fetch("./episode.json");
     const dataFromJson = await data.json();
     const epLength = Number(dataFromJson.episodes.length);
     function objMatch(el) {
       return el.no === Number(epNumber);
     }
-    const hrefNext = `?episode=${epNumber + 1}`;
-    const hrefPrev = `?episode=${epNumber - 1}`;
     const largestNo = Math.max(
       // ...foo => spread operator
       ...dataFromJson.episodes.map(episode => episode.no),
       // Math.max(1,2,3,4,5,6,7,8,9,10,11);
     );
+    const epNumber = Number(params.get("episode")) || largestNo;
+    const hrefNext = `?episode=${epNumber + 1}`;
+    const hrefPrev = `?episode=${epNumber - 1}`;
 
     const latestEpisode = dataFromJson.episodes.find(episode => episode.no === largestNo);
     const selectedEpisode = dataFromJson.episodes.find(objMatch);
 
     if (epNumber <= epLength && epNumber != undefined && epNumber != undefined) {
       this.episode = selectedEpisode;
+      // this line
+      // window.location.search = `?episode=${epNumber}`;
     } else {
       this.episode = latestEpisode;
       window.location.search = `?episode=${largestNo}`;
