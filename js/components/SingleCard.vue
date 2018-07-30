@@ -1,7 +1,7 @@
 <template>
     <div class="episode-block">
         <div class="eb__header">
-        <div class="eb__header-number-block">{{ title }}</div>
+        <div class="eb__header-number-block">{{ obj.no }}</div>
         <div class="eb__header-date">3 July, 2018</div>
         </div>
         <div class="eb__content">
@@ -37,7 +37,7 @@
     const allEpisodes = await data.json();
     this.episodes = allEpisodes.episodes
     },
-    props: ['title'],
+    props: ['obj'],
     data () {
         return {
             episodes: [],
@@ -47,5 +47,8 @@
 </script>
 
 <style scoped>
-  /* nic tu */
+    .episode-block {
+        margin-bottom: 30px;
+    }
 </style>
+

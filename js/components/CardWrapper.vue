@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="episodes-wrapper">
-    <single-card v-for="episode in episodes" :key="episode.id" :title="episode"></single-card>
+    <single-card v-for="episode in episodes" :key="episode.no" :obj="episode"></single-card>
   </div>
 </div>
 </template>
@@ -26,7 +26,3 @@ import SingleCard from './SingleCard.vue';
     },
 }
 </script>
-
-<style scoped>
-  /* nic tu */
-</style>
