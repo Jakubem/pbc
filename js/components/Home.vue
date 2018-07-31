@@ -1,5 +1,5 @@
 <template>
-    <carousel>
+    <carousel :per-page="3">
         <slide v-for="episode in test" :key="episode.no">
              <single-card :obj="test"></single-card>
         </slide>
@@ -44,6 +44,9 @@ import SingleCard from './SingleCard.vue';
     },
 }
 </script>
-
-<style scoped>
+<style>
+    /* pls help */
+    .VueCarousel-wrapper {
+        overflow: visible !important;
+    }
 </style>
