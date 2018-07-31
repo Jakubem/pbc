@@ -1,9 +1,12 @@
 <template>
-    <carousel :per-page="3">
-        <slide v-for="episode in test" :key="episode.no">
-             <single-card :obj="test"></single-card>
-        </slide>
-    </carousel>
+    <div>
+        <carousel :per-page="3">
+            <slide v-for="episode in test" :key="episode.no">
+                <single-card :obj="test"></single-card>
+            </slide>
+        </carousel>
+        <button ></button>
+    </div>
 </template>
 
 <script>
@@ -45,8 +48,7 @@ import SingleCard from './SingleCard.vue';
 }
 </script>
 <style>
-    /* pls help */
     .VueCarousel-wrapper {
-        overflow: visible !important;
+        padding: 50px;
     }
 </style>
