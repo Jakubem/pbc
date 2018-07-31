@@ -30,7 +30,8 @@
     "vue-loader": "^15.2.6",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.1.0",
-    "webpack-cli": "^2.0.10"
+    "webpack-cli": "^2.0.10",
+    "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
     "vue-carousel": "^0.10.0",
