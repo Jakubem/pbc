@@ -6,15 +6,15 @@ import CardWrapper from './components/CardWrapper.vue';
 import Home from './components/Home.vue';
 
 if (document.getElementById("app")) {
-    const app = new Vue({
-        el: "#app",
-        data: {
-            episodes: []
-        },
-        components: {
-            'episode-template': EpisodeTemplate,
-            'card-wrapper': CardWrapper,
-            'home': Home
-        },
-    })
+  const app = new Vue({
+    el: "#app",
+    data: {
+      episodes: []
+    },
+    components: {
+      'episode-template': EpisodeTemplate,
+      'card-wrapper': CardWrapper,
+      'home': Home
+    },
+  })
 }

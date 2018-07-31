@@ -5,17 +5,27 @@
                 <single-card :obj="test"></single-card>
             </slide>
         </carousel>
-        <a @click.prevent="prevSlide">Prev</a>
-        <a @click.prevent="nextSlide">Next</a>
+        <div class="arrow-navigation">
+          <a class="arrow" @click.prevent="prevSlide">
+              <arrow-prev-carousel></arrow-prev-carousel>
+          </a>
+          <a class="arrow" @click.prevent="nextSlide">
+              <arrow-next-carousel></arrow-next-carousel>
+          </a>
+        </div>
     </div>
 </template>
 
 <script>
-import { Carousel, Slide } from 'vue-carousel';
-import SingleCard from './SingleCard.vue';
+  import { Carousel, Slide } from 'vue-carousel';
+  import SingleCard from './SingleCard.vue';
+  import ArrowNextCarousel from './svgComponents/ArrowNextCarousel.vue';
+  import ArrowPrevCarousel from './svgComponents/ArrowPrevCarousel.vue';
   export default {
     components: {
-       'single-card': SingleCard,
+        'single-card': SingleCard,
+        'arrow-next-carousel': ArrowNextCarousel,
+        'arrow-prev-carousel': ArrowPrevCarousel,
         Carousel,
         Slide
     },
@@ -61,5 +71,12 @@ import SingleCard from './SingleCard.vue';
 <style>
     .VueCarousel-wrapper {
         padding: 50px;
+    }
+    .arrow > .nav-arr {
+        cursor: pointer;
+    }
+    /* 😓 */
+    .arrow-navigation {
+      float: right;
     }
 </style>

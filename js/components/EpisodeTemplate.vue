@@ -21,12 +21,11 @@
             <div class="header-episode__apps">
               <div class="text-apps">This episode is also available on:</div>
               <div class="episode-apps-icons">
-                <a href="https://itunes.apple.com/de/podcast/the-product-breakfast-club/id1320916842?l=en&amp;mt=2&amp;i=1000395595606"
-                  target="_blank" class="icon-link w-inline-block">
+                <a href="https://itunes.apple.com/de/podcast/the-product-breakfast-club/id1320916842?l=en&amp;mt=2&amp;i=1000395595606" target="_blank"
+                  class="icon-link w-inline-block">
                   <img src="images/itunes-icon.svg" class="app-icon">
                 </a>
-                <a href="https://open.spotify.com/show/1qvzYYHQko5sMuKWmoundZ?si=hzuKMuYlRciD3M-6IjfCoQ" target="_blank"
-                  class="icon-link w-inline-block">
+                <a href="https://open.spotify.com/show/1qvzYYHQko5sMuKWmoundZ?si=hzuKMuYlRciD3M-6IjfCoQ" target="_blank" class="icon-link w-inline-block">
                   <img src="images/Spotify-Icon.svg" class="app-icon">
                 </a>
                 <a href="https://soundcloud.com/ajsmartdesign" target="_blank" class="icon-link w-inline-block">
@@ -44,9 +43,7 @@
               <a href="https://twitter.com/intent/tweet?text=xdddd" target="_blank" class="icon-link share-icon w-inline-block">
                 <img src="images/twitter-icon.svg" class="card-icon share-icon">
               </a>
-              <div class="fb-share-button" 
-                data-href="https://www.pbc.com/episode.html"
-                data-layout="button_count">
+              <div class="fb-share-button" data-href="https://www.pbc.com/episode.html" data-layout="button_count">
               </div>
               <!-- <a href="#" class="icon-link share-icon w-inline-block">
                 <img src="images/facebook-letter-logo.svg" class="card-icon share-icon">
@@ -62,14 +59,16 @@
           <div class="col-15p"></div>
           <div class="col-70p">
             <p class="p-large">{{ episode.description }}
-              <a href="https://medium.com/product-breakfast-club-links-unofficial" target="_blank"
-                class="text-link"></a>
+              <a href="https://medium.com/product-breakfast-club-links-unofficial" target="_blank" class="text-link"></a>
               <br>
             </p>
             <div class="episodes-nav episodes-nav__border">
               <!-- do tych tu dać aria hiden na tru -->
-              <a :href="hrefPrev" rel="prev" class="btn btn-text w-button" v-bind:class="{ disabled: firstEpisode }"><arrow-prev></arrow-prev> previous episode </a>
-              <a :href="hrefNext" rel="next" class="btn btn-text w-button" v-bind:class="{ disabled: lastEpisode }">Next episode <arrow-next></arrow-next> </a>
+              <a :href="hrefPrev" rel="prev" class="btn btn-text w-button" v-bind:class="{ disabled: firstEpisode }">
+                <arrow-prev></arrow-prev> previous episode </a>
+              <a :href="hrefNext" rel="next" class="btn btn-text w-button" v-bind:class="{ disabled: lastEpisode }">Next episode
+                <arrow-next></arrow-next>
+              </a>
             </div>
           </div>
           <div class="col"></div>
@@ -80,8 +79,8 @@
 </template>
 
 <script>
-  import ArrowNext from './ArrowNext.vue';
-  import ArrowPrev from './ArrowPrev.vue';
+  import ArrowNext from './svgComponents/ArrowNext.vue';
+  import ArrowPrev from './svgComponents/ArrowPrev.vue';
   import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
   export default {
     components: {
