@@ -1,11 +1,12 @@
 <template>
     <div>
-        <carousel :per-page="3">
+        <carousel ref="carousel" :per-page="3">
             <slide v-for="episode in test" :key="episode.no">
                 <single-card :obj="test"></single-card>
             </slide>
         </carousel>
-        <button ></button>
+        <a @click.prevent="prevSlide">Prev</a>
+        <a @click.prevent="nextSlide">Next</a>
     </div>
 </template>
 
@@ -23,9 +24,19 @@ import SingleCard from './SingleCard.vue';
     const allEpisodes = await data.json();
     this.episodes = allEpisodes.episodes
     },
+    methods: {
+        // custom navigation
+        nextSlide() {
+            this.$refs.carousel.goToPage(this.$refs.carousel.getNextPage());
+        },
+        prevSlide() {
+            this.$refs.carousel.goToPage(this.$refs.carousel.getPreviousPage());
+        }
+    },
     data () {
         return {
             episodes: [],
+            // test episodes
             test: [
                 {
                     no: 1,
