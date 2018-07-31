@@ -42,7 +42,7 @@
         prevSlide() {
             this.$refs.carousel.goToPage(this.$refs.carousel.getPreviousPage());
         }
-    },
+    },s
     data () {
         return {
             episodes: [],
