@@ -156,9 +156,10 @@
   }
   .v-spinner {
     width: 100%;
-    height: 550px;
+    height: 525px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
+
 </style>
