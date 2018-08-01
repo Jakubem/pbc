@@ -5,6 +5,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
+// @TODO: install and try out https://github.com/FullHuman/purgecss-webpack-plugin
+
 const minify = {
     removeComments: true,
     collapseWhitespace: true,
@@ -17,7 +19,6 @@ const minify = {
     minifyCSS: true,
     minifyURLs: true,
 }
-
 
 module.exports = {
     entry: './js/main.js',
@@ -100,21 +101,21 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
            {
-                from: 'fonts',
-                to: 'fonts'
+              from: 'fonts',
+              to: 'fonts'
             },
             {
-                from: 'images',
-                to: 'images'
+              from: 'images',
+              to: 'images'
             },
             {
-                from: 'js/productbclub.js',
-                to: 'productbclub.js'
+              from: 'js/productbclub.js',
+              to: 'productbclub.js'
             },
             // for now
             {
-                from: 'js/episode.json',
-                to: 'episode.json'
+              from: 'js/episode.json',
+              to: 'episode.json'
             },
         ]),
         new MiniCssExtractPlugin({

@@ -7,7 +7,7 @@
         <a href="episodes.html" class="text-link breadcrumbs">Back to All Episodes</a>
         <div class="grid">
           <div class="col-15p">
-            <div class="header-episode__number-block">{{ `#${episode.no}` }}</div>
+            <div class="header-episode__number-block">{{ `#${this.zeroPad(episode.no)}` }}</div>
             <div class="header-episode__date"></div>
           </div>
           <div class="col-70p">
@@ -40,11 +40,22 @@
           <div class="col">
             <div class="share-block">
               <div class="share-text">Share</div>
-              <a href="https://twitter.com/intent/tweet?text=xdddd" target="_blank" class="icon-link share-icon w-inline-block">
-                <img src="images/twitter-icon.svg" class="card-icon share-icon">
-              </a>
-              <div class="fb-share-button" data-href="https://www.pbc.com/episode.html" data-layout="button_count">
-              </div>
+                <a href="https://twitter.com/intent/tweet?text=xdddd" target="_blank" class="icon-link share-icon w-inline-block">
+                  <img src="images/twitter-icon.svg" class="card-icon share-icon">
+                </a>
+                <div @click="foo" class="custom-facebook-share">
+                  <div> hahuhauhauahuahuahua rozłączyłęś się ale nie zabiles sesji live share i Ci tutaj robie bajzel teraz jhaahahhaha całe dane usuniete nigdy nie odzyskasz hhuhihihiihuhuihiuhuihuihihiuhuihiuhuih
+
+
+                    n no dobra nie robie
+                  </div>
+                  <div class="custom-facebook-share_original">
+                    <div class="fb-share-button"
+                      data-href="https://www.pbc.com/episode.html" 
+                      data-layout="button_count">
+                    </div>
+                  </div>
+                </div>
               <!-- <a href="#" class="icon-link share-icon w-inline-block">
                 <img src="images/facebook-letter-logo.svg" class="card-icon share-icon">
               </a> -->
@@ -53,21 +64,31 @@
         </div>
       </div>
     </div>
-    <div class="episode-info">
+    <div v-if="loading === false" class="episode-info">
       <div class="container container__episode-info">
         <div class="grid">
           <div class="col-15p"></div>
           <div class="col-70p">
             <p class="p-large">{{ episode.description }}
               <a href="https://medium.com/product-breakfast-club-links-unofficial" target="_blank" class="text-link"></a>
-              <br>
+         x     <br>
             </p>
             <div class="episodes-nav episodes-nav__border">
-              <!-- do tych tu dać aria hiden na tru -->
-              <a :href="hrefPrev" rel="prev" class="btn btn-text w-button" v-bind:class="{ disabled: firstEpisode }">
-                <arrow-prev></arrow-prev> previous episode </a>
-              <a :href="hrefNext" rel="next" class="btn btn-text w-button" v-bind:class="{ disabled: lastEpisode }">Next episode
-                <arrow-next></arrow-next>
+              <a 
+                :href="hrefPrev" 
+                rel="prev" 
+                class="btn btn-text w-button"
+                :aria-hidden="firstEpisode"
+                :class="{ 'disabled': firstEpisode }">
+                <arrow-prev></arrow-prev> Previous episode 
+                </a>
+              <a 
+                :href="hrefNext" 
+                rel="next" 
+                :aria-hidden="lastEpisode"
+                class="btn btn-text w-button" 
+                :class="{ 'disabled': lastEpisode }">
+                Next episode <arrow-next></arrow-next>
               </a>
             </div>
           </div>
@@ -82,6 +103,8 @@
   import ArrowNext from './svgComponents/ArrowNext.vue';
   import ArrowPrev from './svgComponents/ArrowPrev.vue';
   import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
+  import * as Utils from '../utils';
+
   export default {
     components: {
       'arrow-next': ArrowNext,
@@ -135,6 +158,14 @@
     }
   }
 },
+  methods: {
+    zeroPad(number) {
+      return Utils.zeroPad(number);
+    },
+    foo() {
+
+    }
+  },
     data () {
       return {
         episode: {},
@@ -160,5 +191,4 @@
     align-items: center;
     justify-content: center;
   }
-
 </style>

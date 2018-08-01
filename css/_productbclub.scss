@@ -518,6 +518,8 @@ p {
 }
 
 .host-details {
+  display: flex;
+  flex-direction: column;
   padding-top: 4rem;
   padding-right: 2.5rem;
   padding-left: 2.5rem;
