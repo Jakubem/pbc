@@ -13,10 +13,12 @@
           <div class="col-70p">
             <h2>{{ episode.name }}</h2>
             <div class="player-placeholder">
-              <div class="html-embed w-embed w-iframe">
+              <!-- <div class="html-embed w-embed w-iframe">
                 <iframe frameborder="0" height="200" scrolling="no" src="https://embed.radiopublic.com/e?ge=s1!3c5bf0c81c37166b78c6d28a2fcd0ebca57e944c&if=the-product-breakfast-club-WDpzqE&referrer=https:%2F%2Fmedium.com%2Fmedia%2F233b24493bca108b31ad8b3c92180e02%3FpostId%3Dcfba7aba1132"
-                  width="100%"></iframe>
-              </div>
+                  width="100%">
+                </iframe>
+              </div> -->
+            <player></player>
             </div>
             <div class="header-episode__apps">
               <div class="text-apps">This episode is also available on:</div>
@@ -43,19 +45,15 @@
                 <a href="https://twitter.com/intent/tweet?text=xdddd" target="_blank" class="icon-link share-icon w-inline-block">
                   <img src="images/twitter-icon.svg" class="card-icon share-icon">
                 </a>
-                <div @click="foo" class="custom-facebook-share">
-                  <div> hahuhauhauahuahuahua rozłączyłęś się ale nie zabiles sesji live share i Ci tutaj robie bajzel teraz jhaahahhaha całe dane usuniete nigdy nie odzyskasz hhuhihihiihuhuihiuhuihuihihiuhuihiuhuih
-
-
-                    n no dobra nie robie
-                  </div>
-                  <div class="custom-facebook-share_original">
-                    <div class="fb-share-button"
-                      data-href="https://www.pbc.com/episode.html" 
-                      data-layout="button_count">
-                    </div>
-                  </div>
-                </div>
+                  <!-- <div class="fb-share-button"
+                    data-href="https://www.pbc.com/episode.html" 
+                    data-layout="button_count">
+                  </div> -->
+                  <social-sharing url="https://vuejs.org/" inline-template>
+                    <network network="facebook">
+                      <i class="fa fa-facebook"></i> Facebook
+                    </network>
+                  </social-sharing>
               <!-- <a href="#" class="icon-link share-icon w-inline-block">
                 <img src="images/facebook-letter-logo.svg" class="card-icon share-icon">
               </a> -->
@@ -103,13 +101,16 @@
   import ArrowNext from './svgComponents/ArrowNext.vue';
   import ArrowPrev from './svgComponents/ArrowPrev.vue';
   import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
+  import Player from './Player.vue';
+  import SocialSharing from 'vue-social-sharing'
   import * as Utils from '../utils';
-
   export default {
     components: {
       'arrow-next': ArrowNext,
       'arrow-prev': ArrowPrev,
-      PulseLoader
+      PulseLoader,
+      Player,
+      SocialSharing
     },
     mounted: async function() {
     const params = new URLSearchParams(window.location.search.substring(1));
@@ -162,9 +163,6 @@
     zeroPad(number) {
       return Utils.zeroPad(number);
     },
-    foo() {
-
-    }
   },
     data () {
       return {
