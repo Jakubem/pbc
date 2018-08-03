@@ -14,7 +14,8 @@ if (document.getElementById("app")) {
     components: {
       'episode-template': EpisodeTemplate,
       'card-wrapper': CardWrapper,
-      'home': Home
+      'home': Home,
+      SocialSharing,
     },
   })
 }
