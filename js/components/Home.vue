@@ -1,6 +1,7 @@
 <template>
     <div>
-        <carousel ref="carousel" :per-page="3">
+        <!-- bind this to screen width -->
+        <carousel ref="carousel" :per-page="1">
             <slide v-for="episode in test" :key="episode.no">
                 <single-card :obj="test"></single-card>
             </slide>
@@ -70,7 +71,7 @@
 </script>
 <style>
     .VueCarousel-wrapper {
-        padding: 50px;
+        padding: 0 50px;
     }
     .arrow > .nav-arr {
         cursor: pointer;

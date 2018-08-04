@@ -225,6 +225,7 @@ p {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 100%;
 }
 
 .episodes-wrapper {
@@ -1046,7 +1047,8 @@ p {
     margin-left: -0.5rem;
   }
   .episode-block {
-    max-width: 50%;
+    // this to reconsider
+    // max-width: 50%;
   }
   .episode-block.s {
     display: none;
