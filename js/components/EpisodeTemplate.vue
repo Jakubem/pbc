@@ -51,7 +51,7 @@
                   </div> -->
                   <social-sharing url="https://vuejs.org/" inline-template>
                     <network network="facebook">
-                      <i class="fa fa-facebook"></i> Facebook
+                      <img src="images/facebook-letter-logo.svg" class="card-icon share-icon">
                     </network>
                   </social-sharing>
               <!-- <a href="#" class="icon-link share-icon w-inline-block">
