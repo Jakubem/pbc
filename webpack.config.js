@@ -21,7 +21,7 @@ const minify = {
 }
 
 module.exports = {
-  entry: './js/main.js',
+  entry: "./js/main.js",
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -38,11 +38,16 @@ module.exports = {
             js: {
               loader: 'babel-loader',
               options: {
-                  presets: ['vue']
+                  presets: ['vue-app']
               }
            },
           }
         }
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        // include: [resolve('js'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
         test: /\.(png|jpg|gif|svg|ttf)$/,
