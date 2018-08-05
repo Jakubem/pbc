@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- bind this to screen width -->
-        <carousel ref="carousel" :per-page="1">
+        <carousel ref="carousel" :perPageCustom="[[480, 1], [768, 2], [1000, 3]]">
             <slide v-for="episode in test" :key="episode.no">
                 <single-card :obj="test"></single-card>
             </slide>

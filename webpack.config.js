@@ -7,7 +7,6 @@ const glob = require('glob');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
-// @TODO: install and try out https://github.com/FullHuman/purgecss-webpack-plugin
 const PATHS = {
   src: path.join(__dirname, 'src'),
 }
