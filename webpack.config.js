@@ -2,10 +2,15 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const PurgecssPlugin = require('purgecss-webpack-plugin');
+const glob = require('glob');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 // @TODO: install and try out https://github.com/FullHuman/purgecss-webpack-plugin
+const PATHS = {
+  src: path.join(__dirname, 'src'),
+}
 
 const minify = {
   removeComments: true,
@@ -21,7 +26,7 @@ const minify = {
 }
 
 module.exports = {
-  entry: "./js/main.js",
+  entry: "./src/js/main.js",
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -91,48 +96,51 @@ module.exports = {
     new HtmlWebpackPlugin({
       hash: false,
       minify: minify,
-      template: './index.html',
+      template: './src/views/index.html',
       filename: './index.html'
     }),
     new HtmlWebpackPlugin({
       hash: false,
       minify: minify,
       collapseWhitespace: true,
-      template: './episodes.html',
+      template: './src/views/episodes.html',
       filename: './episodes.html'
     }),
     new HtmlWebpackPlugin({
       hash: false,
       minify: minify,
-      template: './about.html',
+      template: './src/views/about.html',
       filename: './about.html'
     }),
     new HtmlWebpackPlugin({
       hash: false,
       minify: minify,
-      template: './episode.html',
+      template: './src/views/episode.html',
       filename: './episode.html'
     }),
     new CopyWebpackPlugin([{
-        from: 'fonts',
+        from: 'src/fonts',
         to: 'fonts'
       },
       {
-        from: 'images',
+        from: 'src/images',
         to: 'images'
       },
       {
-        from: 'js/productbclub.js',
+        from: 'src/js/productbclub.js',
         to: 'productbclub.js'
       },
       // for now
       {
-        from: 'js/episode.json',
+        from: 'src/js/episode.json',
         to: 'episode.json'
       }
     ]),
     new MiniCssExtractPlugin({
       filename: "bundle.css",
+    }),
+    new PurgecssPlugin({
+      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true })
     }),
     new VueLoaderPlugin()
   ]
