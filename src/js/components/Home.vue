@@ -1,7 +1,11 @@
 <template>
     <div>
         <!-- bind this to screen width -->
-        <carousel ref="carousel" :perPageCustom="[[480, 1], [768, 2], [1000, 3]]">
+        <div class="section-title">
+          <h2>Latest episodes</h2>
+          <a href="episodes.html" class="text-link w-hidden-small w-hidden-tiny">View all episodes</a>
+        </div>
+        <carousel ref="carousel" :perPageCustom="[[0, 1], [800, 2], [1100, 3]]">
             <slide v-for="episode in test" :key="episode.no">
                 <single-card :obj="test"></single-card>
             </slide>
@@ -46,32 +50,35 @@
     },
     data () {
         return {
-            episodes: [],
-            // test episodes
-            test: [
-                {
-                    no: 1,
-                },
-                {
-                    no: 2,
-                },
-                {
-                    no: 3,
-                },
-                {
-                    no: 4,
-                },
-                {
-                    no: 5,
-                }
-            ] 
-      }
-    },
+          episodes: [],
+          // test episodes
+          test: [
+            {no: 1},
+            {no: 2},
+            {no: 3},
+            {no: 4},
+            {no: 5}
+          ] 
+        }
+      },
 }
 </script>
 <style>
     .VueCarousel-wrapper {
         padding: 0 50px;
+    }
+    .section-title {
+        padding: 0 50px;
+    }
+    .arrow > .nav-arr {
+        cursor: pointer;
+    }
+    /* 😓 */
+    .arrow-navigation {
+      float: right;
+    }
+</style>
+
     }
     .arrow > .nav-arr {
         cursor: pointer;

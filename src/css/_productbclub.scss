@@ -233,9 +233,10 @@ p {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-right: -8px;
+  // jakub cccccchanges
+  // margin-right: -8px;
   margin-bottom: 2rem;
-  margin-left: -8px;
+  // margin-left: -8px;
   -webkit-justify-content: space-around;
   -ms-flex-pack: distribute;
   justify-content: space-around;
@@ -1046,10 +1047,12 @@ p {
     margin-right: -0.5rem;
     margin-left: -0.5rem;
   }
-  .episode-block {
-    // this to reconsider
-    // max-width: 50%;
-  }
+
+  // jakub cccccchanges
+  // .episode-block {
+  //   max-width: 50%;
+  // }
+
   .episode-block.s {
     display: none;
   }
@@ -1267,10 +1270,11 @@ p {
     flex-direction: column;
   }
   .episode-block {
+    // jakub cccccchanges
     max-width: 100%;
-    margin-right: 0px;
+    // margin-right: 0px;
     margin-bottom: 1.5rem;
-    margin-left: 0px;
+    // margin-left: 0px;
   }
   .episode-block.s {
     display: block;

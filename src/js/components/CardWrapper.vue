@@ -1,13 +1,16 @@
 <template>
-<div>
-  <div class="episodes-wrapper">
-    <carousel :per-page="3">
-      <slide v-for="episode in episodes" :key="episode.no">
-        <single-card :obj="episode"></single-card>
-      </slide>
-    </carousel>
+  <div>
+    <div class="section-title">
+      <h2>All episodes</h2>
+      </div>
+      <div class="episodes-wrapper">
+        <carousel ref="carousel" :perPageCustom="[[0, 1], [800, 2], [1100, 3]]">
+            <slide v-for="episode in test" :key="episode.no">
+                <single-card :obj="test"></single-card>
+            </slide>
+        </carousel>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -31,7 +34,30 @@
     data () {
       return {
         episodes: [],
+        test: [
+          {no: 1},
+          {no: 2},
+          {no: 3},
+          {no: 4},
+          {no: 5}
+        ] 
       }
     },
 }
 </script>
+<style scoped>
+    .VueCarousel-wrapper {
+        padding: 0 50px;
+    }
+    /* jakub hotfix */
+    .VueCarousel {
+        max-width: 100%;
+    }
+    .arrow > .nav-arr {
+        cursor: pointer;
+    }
+    /* 😓 */
+    .arrow-navigation {
+      float: right;
+    }
+</style>
