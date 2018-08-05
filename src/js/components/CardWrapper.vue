@@ -59,5 +59,6 @@
     /* 😓 */
     .arrow-navigation {
       float: right;
+      padding: 0 50px;
     }
 </style>

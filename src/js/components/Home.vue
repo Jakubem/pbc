@@ -76,15 +76,6 @@
     /* 😓 */
     .arrow-navigation {
       float: right;
-    }
-</style>
-
-    }
-    .arrow > .nav-arr {
-        cursor: pointer;
-    }
-    /* 😓 */
-    .arrow-navigation {
-      float: right;
+      padding: 0 50px;
     }
 </style>
