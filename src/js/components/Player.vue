@@ -26,6 +26,6 @@
     width: 100%;
     border-radius: 50px;
     width: 100%;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 3px 7px rgba(0, 0, 0, 0.5);
   }
 </style>
