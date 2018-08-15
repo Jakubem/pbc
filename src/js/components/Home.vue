@@ -5,18 +5,19 @@
           <h2>Latest episodes</h2>
           <a href="episodes.html" class="text-link w-hidden-small w-hidden-tiny">View all episodes</a>
         </div>
-        <carousel ref="carousel" :perPageCustom="[[0, 1], [800, 2], [1100, 3]]">
+        <carousel ref="carousel" v-on:pageChange="pageChange" :perPageCustom="[[0, 1], [800, 2], [1100, 3]]">
             <slide v-for="episode in test" :key="episode.no">
                 <single-card :obj="test"></single-card>
             </slide>
         </carousel>
         <div class="arrow-navigation">
-          <a class="arrow" @click.prevent="prevSlide">
+          <a class="arrow" :class="{ 'hidden': firstEpisode }" @click.prevent="prevSlide">
               <arrow-prev-carousel></arrow-prev-carousel>
           </a>
-          <a class="arrow" @click.prevent="nextSlide">
+          <a class="arrow" :class="{ 'hidden': lastEpisode }" @click.prevent="nextSlide">
               <arrow-next-carousel></arrow-next-carousel>
           </a>
+          <!-- <p>{{ currentIndex }}</p> -->
         </div>
     </section>
 </template>
@@ -37,16 +38,21 @@
     mounted: async function() {
     const data = await fetch("./episode.json");
     const allEpisodes = await data.json();
-    this.episodes = allEpisodes.episodes
+    this.episodes = allEpisodes.episodes;
     },
     methods: {
         // custom navigation
         nextSlide() {
-            this.$refs.carousel.goToPage(this.$refs.carousel.getNextPage());
+          this.$refs.carousel.goToPage(this.$refs.carousel.getNextPage());
         },
         prevSlide() {
-            this.$refs.carousel.goToPage(this.$refs.carousel.getPreviousPage());
+          this.$refs.carousel.goToPage(this.$refs.carousel.getPreviousPage());
+        },
+        pageChange(i) {
+          console.log(i);
         }
+    },
+    computed: {
     },
     data () {
         return {
@@ -58,7 +64,9 @@
             {no: 3},
             {no: 4},
             {no: 5}
-          ] 
+          ],
+          firstEpisode: true,
+          lastEpisode: false,
         }
       },
 }
@@ -79,5 +87,8 @@
       display: flex;
       justify-content: flex-end;
       padding: 0 50px;
+    }
+    .hidden {
+      visibility: hidden;
     }
 </style>
