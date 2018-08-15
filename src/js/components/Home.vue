@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <section class="episodes">
         <!-- bind this to screen width -->
         <div class="section-title">
           <h2>Latest episodes</h2>
@@ -18,7 +18,7 @@
               <arrow-next-carousel></arrow-next-carousel>
           </a>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>
@@ -75,7 +75,9 @@
     }
     /* 😓 */
     .arrow-navigation {
-      float: right;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
       padding: 0 50px;
     }
 </style>
