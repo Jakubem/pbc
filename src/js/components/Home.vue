@@ -39,6 +39,7 @@
     const data = await fetch("./episode.json");
     const allEpisodes = await data.json();
     this.episodes = allEpisodes.episodes;
+    console.log(this.$refs.carousel);
     },
     methods: {
         // custom navigation
@@ -74,7 +75,7 @@
       },
 }
 </script>
-<style>
+<style scoped>
     .VueCarousel-wrapper {
         padding: 0 50px;
     }
@@ -93,5 +94,11 @@
     }
     .dimmed {
       opacity: 0.2;
+    }
+    /* burdel.css */
+    @media screen and (max-width: 800px){      
+      .arrow {
+        display: none;
+      }
     }
 </style>
