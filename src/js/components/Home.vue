@@ -75,9 +75,15 @@
       },
 }
 </script>
-<style scoped>
+<style>
     .VueCarousel-wrapper {
-        padding: 0 50px;
+        max-width: 1100px;
+    }
+    .VueCarousel {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .section-title {
         padding: 0 50px;
@@ -96,9 +102,12 @@
       opacity: 0.2;
     }
     /* burdel.css */
-    @media screen and (max-width: 800px){      
+    @media screen and (max-width: 801px){      
       .arrow {
         display: none;
+      }
+      .VueCarousel-wrapper {
+        padding: 0 50px;
       }
     }
 </style>
