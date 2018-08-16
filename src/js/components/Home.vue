@@ -11,10 +11,10 @@
             </slide>
         </carousel>
         <div class="arrow-navigation">
-          <a class="arrow" :class="{ 'hidden': firstEpisode }" @click.prevent="prevSlide">
+          <a class="arrow" :class="{ 'dimmed': firstEpisode }" @click.prevent="prevSlide">
               <arrow-prev-carousel></arrow-prev-carousel>
           </a>
-          <a class="arrow" :class="{ 'hidden': lastEpisode }" @click.prevent="nextSlide">
+          <a class="arrow" :class="{ 'dimmed': lastEpisode }" @click.prevent="nextSlide">
               <arrow-next-carousel></arrow-next-carousel>
           </a>
           <!-- <p>{{ currentIndex }}</p> -->
@@ -49,7 +49,10 @@
           this.$refs.carousel.goToPage(this.$refs.carousel.getPreviousPage());
         },
         pageChange(i) {
-          console.log(i);
+          // burdel.js
+          this.firstEpisode = false;
+          i === 0 ? this.firstEpisode = true : this.firstEpisode = false;
+          i === this.$refs.carousel.pageCount - 1 ? this.lastEpisode = true : this.lastEpisode = false;
         }
     },
     computed: {
@@ -88,7 +91,7 @@
       justify-content: flex-end;
       padding: 0 50px;
     }
-    .hidden {
-      visibility: hidden;
+    .dimmed {
+      opacity: 0.2;
     }
 </style>
