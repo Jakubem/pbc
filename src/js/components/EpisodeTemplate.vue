@@ -13,12 +13,9 @@
           <div class="col-70p">
             <h2>{{ episode.name }}</h2>
             <div class="player-placeholder">
-              <!-- <div class="html-embed w-embed w-iframe">
-                <iframe frameborder="0" height="200" scrolling="no" src="https://embed.radiopublic.com/e?ge=s1!3c5bf0c81c37166b78c6d28a2fcd0ebca57e944c&if=the-product-breakfast-club-WDpzqE&referrer=https:%2F%2Fmedium.com%2Fmedia%2F233b24493bca108b31ad8b3c92180e02%3FpostId%3Dcfba7aba1132"
-                  width="100%">
-                </iframe>
-              </div> -->
-            <player></player>
+            <!-- html player   -->
+            <player />
+
             </div>
             <div class="header-episode__apps">
               <div class="text-apps">This episode is also available on:</div>
@@ -42,21 +39,23 @@
           <div class="col">
             <div class="share-block">
               <div class="share-text">Share</div>
-                <a href="https://twitter.com/intent/tweet?text=xdddd" target="_blank" class="icon-link share-icon w-inline-block">
+                <!-- <a href="https://twitter.com/intent/tweet?text=xdddd" target="_blank" class="icon-link share-icon w-inline-block">
                   <img src="images/twitter-icon.svg" class="card-icon share-icon">
-                </a>
+                </a> -->
                   <!-- <div class="fb-share-button"
                     data-href="https://www.pbc.com/episode.html" 
                     data-layout="button_count">
                   </div> -->
-                  <social-sharing url="https://vuejs.org/" inline-template>
+                  <social-sharing :url="shareLink" inline-template>
+                    <network network="twitter">
+                      <img src="images/twitter-icon.svg" class="card-icon share-icon">
+                    </network>
+                  </social-sharing>
+                  <social-sharing :url="shareLink" inline-template>
                     <network network="facebook">
                       <img src="images/facebook-letter-logo.svg" class="card-icon share-icon">
                     </network>
                   </social-sharing>
-              <!-- <a href="#" class="icon-link share-icon w-inline-block">
-                <img src="images/facebook-letter-logo.svg" class="card-icon share-icon">
-              </a> -->
             </div>
           </div>
         </div>
@@ -69,7 +68,6 @@
           <div class="col-70p">
             <p class="p-large">{{ episode.description }}
               <a href="https://medium.com/product-breakfast-club-links-unofficial" target="_blank" class="text-link"></a>
-         x     <br>
             </p>
             <div class="episodes-nav episodes-nav__border">
               <a 
@@ -78,8 +76,8 @@
                 class="btn btn-text w-button"
                 :aria-hidden="firstEpisode"
                 :class="{ 'disabled': firstEpisode }">
-                <arrow-prev></arrow-prev> Previous episode 
-                </a>
+                <arrow-prev></arrow-prev> Previous episode
+              </a>
               <a 
                 :href="hrefNext" 
                 rel="next" 
@@ -90,7 +88,7 @@
               </a>
             </div>
           </div>
-          <div class="col"></div>
+          <!-- <div class="col"></div> -->
         </div>
       </div>
     </div>
@@ -112,11 +110,12 @@
       Player,
       SocialSharing
     },
-    mounted: async function() {
+    created: async function() {
     const params = new URLSearchParams(window.location.search.substring(1));
     const data = await fetch("./episode.json");
     const dataFromJson = await data.json();
     const epLength = Number(dataFromJson.episodes.length);
+
     function objMatch(el) {
       return el.no === Number(epNumber);
     }
@@ -152,18 +151,17 @@
     if (selectedEpisode.no === 1) {
       this.firstEpisode = true;
     }
-    
-    document.onreadystatechange = () => {
-    if (document.readyState == "complete") {
+
     this.loading = false;
-    }
-  }
 },
   methods: {
     zeroPad(number) {
       return Utils.zeroPad(number);
+      },
     },
-  },
+    computed: {
+      shareLink: window.location.href
+    },
     data () {
       return {
         episode: {},
