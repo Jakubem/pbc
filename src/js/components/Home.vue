@@ -17,7 +17,6 @@
           <a class="arrow" :class="{ 'dimmed': lastEpisode }" @click.prevent="nextSlide">
               <arrow-next-carousel></arrow-next-carousel>
           </a>
-          <!-- <p>{{ currentIndex }}</p> -->
         </div>
     </section>
 </template>
