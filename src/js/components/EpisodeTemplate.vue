@@ -7,8 +7,12 @@
         <a href="episodes.html" class="text-link breadcrumbs">Back to All Episodes</a>
         <div class="grid">
           <div class="col-15p">
-            <div class="header-episode__number-block">{{ `#${zeroPad(episode.no)}` }}</div>
-            <div class="header-episode__date"></div>
+            <div class="header-episode__number-block">
+              {{ `#${zeroPad(episode.no)}` }}
+            </div>
+            <div class="header-episode__date">
+              {{ formatDate(episode.date) }}
+            </div>
           </div>
           <div class="col-70p">
             <h2>{{ episode.title }}</h2>
@@ -42,7 +46,7 @@
               <div class="share-text">Share</div>
                 <social-sharing :url="shareLink" inline-template>
                   <network network="twitter">
-                    <img src="images/twitter-icon.svg" class="card-icon share-icon">
+                    <img src="images/twitter-icon.svg" class="card-icon share-icon" alt="">
                   </network>
                 </social-sharing>
                 <social-sharing :url="shareLink" inline-template>
