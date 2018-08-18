@@ -1,7 +1,7 @@
 <template>
   <div class="episode-block">
     <div class="eb__header">
-      <div class="eb__header-number-block">{{ obj.no }}</div>
+      <div class="eb__header-number-block">{{ `#${zeroPad(obj.no)}` }}</div>
       <div class="eb__header-date">{{ obj.date }}</div>
     </div>
     <div class="eb__content">
@@ -18,6 +18,7 @@
 
 <script>
   import lineClamp from 'line-clamp';
+  import * as Utils from '../utils';
   export default {
     mounted: async function() {
       // https://www.npmjs.com/package/line-clamp => to review
@@ -27,8 +28,11 @@
     },
     methods: {
       uri(str) {
-        return decodeURIComponent(str)
-      }
+        return Utils.uri(str);
+      },
+      zeroPad(i) {
+        return Utils.zeroPad(i);
+      },
     },
     props: ['obj'],
     data () {

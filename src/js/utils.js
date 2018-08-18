@@ -1,5 +1,5 @@
-export function zeroPad(number) {
-  let stringValue = String(number);
+export function zeroPad(i) {
+  let stringValue = String(i);
 
   while (stringValue.length < 3) {
     stringValue = `0${stringValue}`;
