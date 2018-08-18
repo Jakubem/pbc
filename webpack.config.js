@@ -93,26 +93,26 @@ module.exports = {
       clearConsole: true,
     }),
     new HtmlWebpackPlugin({
-      hash: false,
+      hash: true,
       minify: minify,
       template: './src/views/index.html',
       filename: './index.html'
     }),
     new HtmlWebpackPlugin({
-      hash: false,
+      hash: true,
       minify: minify,
       collapseWhitespace: true,
       template: './src/views/episodes.html',
       filename: './episodes.html'
     }),
     new HtmlWebpackPlugin({
-      hash: false,
+      hash: true,
       minify: minify,
       template: './src/views/about.html',
       filename: './about.html'
     }),
     new HtmlWebpackPlugin({
-      hash: false,
+      hash: true,
       minify: minify,
       template: './src/views/episode.html',
       filename: './episode.html'
