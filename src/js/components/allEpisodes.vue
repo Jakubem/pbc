@@ -3,8 +3,10 @@
     <div class="section-title">
       <h2>All episodes</h2>
     </div>
-    <div v-for="episode in episodes" :key="episode.no" class="episodes-wrapper">
-      <single-card :obj="episode"></single-card>
+    <div class="all-episodes-wrapper">
+      <single-card v-for="episode in episodes" :key="episode.no" :obj="episode">
+
+      </single-card>
     </div>
   </div>
 </template>
@@ -30,5 +32,12 @@
 }
 </script>
 <style scoped>
-
+  .all-episodes-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .episode-block {
+    max-width: 350px;
+  }
 </style>
