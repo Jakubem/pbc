@@ -10,6 +10,15 @@ body {
   font-weight: 400;
 }
 
+.episode-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.eb__footer {
+  margin-top: auto;
+}
+
 h1 {
   margin-top: 0px;
   margin-bottom: 1rem;

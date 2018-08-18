@@ -75,6 +75,12 @@
       justify-content: center;
       align-items: center;
     }
+
+    .VueCarousel-slide {
+      display: flex;
+      align-items: stretch;
+    }
+
     .section-title {
       padding: 0 50px;
     }
