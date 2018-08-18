@@ -5,7 +5,12 @@
       <h2>Latest episodes</h2>
       <a href="episodes.html" class="text-link w-hidden-small w-hidden-tiny">View all episodes</a>
     </div>
-    <carousel v-if="episodes.length" ref="carousel" v-on:pageChange="pageChange" :perPageCustom="[[0, 1], [800, 2], [1100, 3]]">
+    <carousel 
+      v-if="episodes.length" 
+      ref="carousel" 
+      v-on:pageChange="pageChange" 
+      :perPageCustom="[[0, 1], [800, 2], [1100, 3]]"
+      :paginationEnabled="false">
       <slide v-for="episode in episodes" :key="episode.no">
         <single-card :obj="episode"></single-card>
       </slide>
@@ -98,7 +103,7 @@
       opacity: 0.2;
     }
     /* burdel.css */
-    @media screen and (max-width: 801px){      
+    @media screen and (max-width: 1101px){      
       .arrow {
         display: none;
       }
