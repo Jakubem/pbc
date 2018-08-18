@@ -11,8 +11,3 @@ export function zeroPad(number) {
 export function uri(str) {
   return decodeURIComponent(str)
 }
-
-// export function trimTitle(str) {
-//   const titleChunks = str.split(" ")
-//   return 
-// }
