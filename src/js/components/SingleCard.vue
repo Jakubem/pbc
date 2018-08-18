@@ -2,7 +2,7 @@
   <div class="episode-block">
     <div class="eb__header">
       <div class="eb__header-number-block">
-        {{ obj.no }}
+        {{ `#${zeroPad(obj.no)}` }}
       </div>
       <div class="eb__header-date">
         {{ formatDate(obj.date) }}
@@ -33,11 +33,14 @@
     },
     methods: {
       uri(str) {
-        return decodeURIComponent(str)
+        return Utils.uri(str);
       },
       formatDate(str) {
         return Utils.formatDate(str);
-      }
+      },
+      zeroPad(i) {
+        return Utils.zeroPad(i);
+      },
     },
     props: ['obj'],
     data () {

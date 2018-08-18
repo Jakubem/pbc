@@ -162,21 +162,21 @@
     // trimTitle(str) {
     //   return Utils.trimTitle(str);
     // }
-    },
-    computed: {
-      shareLink: () => window.location.href
-    },
-    data () {
-      return {
-        episode: {},
-        hrefPrev: '',
-        hrefNext: '',
-        lastEpisode: false,
-        firstEpisode: false,
-        loading: true
-      }
-    },
-  }
+  },
+  computed: {
+    shareLink: () => window.location.href
+  },
+  data () {
+    return {
+      episode: {},
+      hrefPrev: '',
+      hrefNext: '',
+      lastEpisode: false,
+      firstEpisode: false,
+      loading: true
+    }
+  },
+}
 </script>
 
 <style scoped>

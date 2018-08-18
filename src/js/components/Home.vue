@@ -67,13 +67,13 @@
 </script>
 <style>
     .VueCarousel-wrapper {
-        max-width: 1200px;
+      max-width: 1200px;
     }
     .VueCarousel {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     .VueCarousel-slide {
@@ -82,10 +82,10 @@
     }
 
     .section-title {
-        padding: 0 50px;
+      padding: 0 50px;
     }
     .arrow > .nav-arr {
-        cursor: pointer;
+      cursor: pointer;
     }
     /* 😓 */
     .arrow-navigation {
