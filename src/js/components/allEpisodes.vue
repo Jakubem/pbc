@@ -22,8 +22,6 @@
     const allEpisodes = await data.json();
     this.episodes = allEpisodes.items;
     },
-    methods: {
-    },
     data () {
       return {
         episodes: [],

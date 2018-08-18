@@ -2,7 +2,7 @@ import Vue from 'vue';
 import '../css/style.scss';
 
 import EpisodeTemplate from './components/EpisodeTemplate.vue';
-import allEpisodes from './components/allEpisodes.vue';
+import AllEpisodes from './components/AllEpisodes.vue';
 import Home from './components/Home.vue';
 
 if (document.getElementById("app")) {
@@ -11,7 +11,7 @@ if (document.getElementById("app")) {
     components: {
       EpisodeTemplate,
       SocialSharing,
-      allEpisodes,
+      AllEpisodes,
       Home,
     },
   })
