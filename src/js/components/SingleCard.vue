@@ -1,5 +1,9 @@
 <template>
-  <div class="episode-block" role="link" @click="clickCard">
+  <div 
+    class="episode-block" 
+    role="link" 
+    @mousedown="handleMouseDown"
+    @mouseup="handleMouseUp">
     <div class="eb__header">
       <div class="eb__header-number-block">
         {{ `#${zeroPad(obj.no)}` }}
@@ -44,12 +48,24 @@
       },
       clickCard() {
         this.$refs.link.click();
+      },
+      handleMouseUp() {
+        this.isMouseDown = false;
+        if (new Date() - this.timer <= 100) {
+          this.clickCard();
+        }
+      },
+      handleMouseDown() {
+        this.isMouseDown = true;
+        this.timer = new Date();
       }
     },
     props: ['obj'],
     data () {
         return {
-      }
+          isMouseDown: false,
+          timer: 0,
+        };
     },
 }
 </script>
