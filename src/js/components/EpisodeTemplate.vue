@@ -156,9 +156,9 @@
     uri(str) {
       return Utils.uri(str);
     },
-    trimTitle(str) {
-      return Utils.trimTitle(str);
-    }
+    // trimTitle(str) {
+    //   return Utils.trimTitle(str);
+    // }
     },
     computed: {
       shareLink: () => window.location.href
