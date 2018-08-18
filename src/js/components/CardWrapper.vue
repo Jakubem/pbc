@@ -5,9 +5,9 @@
       </div>
       <div class="episodes-wrapper">
         <carousel ref="carousel" :perPageCustom="[[0, 1], [800, 2], [1100, 3]]">
-            <slide v-for="episode in test" :key="episode.no">
-                <single-card :obj="test"></single-card>
-            </slide>
+          <slide v-for="episode in test" :key="episode.no">
+            <single-card :obj="test"></single-card>
+          </slide>
         </carousel>
     </div>
   </div>
@@ -20,9 +20,9 @@
   import ArrowPrevCarousel from './svgComponents/ArrowPrevCarousel.vue';
   export default {
     components: {
-       'single-card': SingleCard,
-        Carousel,
-        Slide
+      SingleCard,
+      Carousel,
+      Slide
     },
     mounted: async function() {
     const data = await fetch("./episode.json");

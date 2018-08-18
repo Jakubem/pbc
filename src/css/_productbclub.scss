@@ -1,6 +1,6 @@
-[v-cloak] { 
-  display: flex;
-}
+// [v-cloak] { 
+//   display: flex;
+// }
 
 body {
   font-family: Avenirnext, sans-serif;
@@ -311,9 +311,11 @@ p {
 }
 
 .p-card {
-  color: rgba(0, 0, 0, .88);
-  font-size: 14px;
-  line-height: 1.5rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
 }
 
 .eb__footer {

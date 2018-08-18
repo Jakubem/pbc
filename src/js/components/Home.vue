@@ -1,24 +1,24 @@
 <template>
-    <section class="episodes">
-        <!-- bind this to screen width -->
-        <div class="section-title">
-          <h2>Latest episodes</h2>
-          <a href="episodes.html" class="text-link w-hidden-small w-hidden-tiny">View all episodes</a>
-        </div>
-        <carousel ref="carousel" v-on:pageChange="pageChange" :perPageCustom="[[0, 1], [800, 2], [1100, 3]]">
-            <slide v-for="episode in test" :key="episode.no">
-                <single-card :obj="test"></single-card>
-            </slide>
-        </carousel>
-        <div class="arrow-navigation">
-          <a class="arrow" :class="{ 'dimmed': firstEpisode }" @click.prevent="prevSlide">
-              <arrow-prev-carousel></arrow-prev-carousel>
-          </a>
-          <a class="arrow" :class="{ 'dimmed': lastEpisode }" @click.prevent="nextSlide">
-              <arrow-next-carousel></arrow-next-carousel>
-          </a>
-        </div>
-    </section>
+  <section class="episodes">
+    <!-- bind this to screen width -->
+    <div class="section-title">
+      <h2>Latest episodes</h2>
+      <a href="episodes.html" class="text-link w-hidden-small w-hidden-tiny">View all episodes</a>
+    </div>
+    <carousel ref="carousel" v-on:pageChange="pageChange" :perPageCustom="[[0, 1], [800, 2], [1100, 3]]">
+      <slide v-for="episode in test" :key="episode.no">
+        <single-card :obj="test"></single-card>
+      </slide>
+    </carousel>
+    <div class="arrow-navigation">
+      <a class="arrow" :class="{ 'dimmed': firstEpisode }" @click.prevent="prevSlide">
+        <arrow-prev-carousel></arrow-prev-carousel>
+      </a>
+      <a class="arrow" :class="{ 'dimmed': lastEpisode }" @click.prevent="nextSlide">
+        <arrow-next-carousel></arrow-next-carousel>
+      </a>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -28,17 +28,16 @@
   import ArrowPrevCarousel from './svgComponents/ArrowPrevCarousel.vue';
   export default {
     components: {
-        'single-card': SingleCard,
-        'arrow-next-carousel': ArrowNextCarousel,
-        'arrow-prev-carousel': ArrowPrevCarousel,
-        Carousel,
-        Slide
+      'single-card': SingleCard,
+      'arrow-next-carousel': ArrowNextCarousel,
+      'arrow-prev-carousel': ArrowPrevCarousel,
+      Carousel,
+      Slide
     },
     mounted: async function() {
     const data = await fetch("./episode.json");
     const allEpisodes = await data.json();
     this.episodes = allEpisodes.episodes;
-    console.log(this.$refs.carousel);
     },
     methods: {
         // custom navigation
