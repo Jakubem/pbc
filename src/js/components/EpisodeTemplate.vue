@@ -7,14 +7,15 @@
         <a href="episodes.html" class="text-link breadcrumbs">Back to All Episodes</a>
         <div class="grid">
           <div class="col-15p">
-            <div class="header-episode__number-block">{{ `#${this.zeroPad(episode.no)}` }}</div>
+            <div class="header-episode__number-block">{{ `#${zeroPad(episode.no)}` }}</div>
             <div class="header-episode__date"></div>
           </div>
           <div class="col-70p">
-            <h2>{{ episode.name }}</h2>
+            <h2>{{ episode.title }}</h2>
             <div class="player-placeholder">
+              
             <!-- html player   -->
-            <player />
+            <player :src="episode.file.url" />
 
             </div>
             <div class="header-episode__apps">
@@ -39,23 +40,16 @@
           <div class="col">
             <div class="share-block">
               <div class="share-text">Share</div>
-                <!-- <a href="https://twitter.com/intent/tweet?text=xdddd" target="_blank" class="icon-link share-icon w-inline-block">
-                  <img src="images/twitter-icon.svg" class="card-icon share-icon">
-                </a> -->
-                  <!-- <div class="fb-share-button"
-                    data-href="https://www.pbc.com/episode.html" 
-                    data-layout="button_count">
-                  </div> -->
-                  <social-sharing :url="shareLink" inline-template>
-                    <network network="twitter">
-                      <img src="images/twitter-icon.svg" class="card-icon share-icon">
-                    </network>
-                  </social-sharing>
-                  <social-sharing :url="shareLink" inline-template>
-                    <network network="facebook">
-                      <img src="images/facebook-letter-logo.svg" class="card-icon share-icon">
-                    </network>
-                  </social-sharing>
+                <social-sharing :url="shareLink" inline-template>
+                  <network network="twitter">
+                    <img src="images/twitter-icon.svg" class="card-icon share-icon">
+                  </network>
+                </social-sharing>
+                <social-sharing :url="shareLink" inline-template>
+                  <network network="facebook">
+                    <img src="images/facebook-letter-logo.svg" class="card-icon share-icon">
+                  </network>
+                </social-sharing>
             </div>
           </div>
         </div>
@@ -66,7 +60,7 @@
         <div class="grid">
           <div class="col-15p"></div>
           <div class="col-70p">
-            <p class="p-large">{{ episode.description }}
+            <p class="p-large">{{ uri(episode.content) }}
               <a href="https://medium.com/product-breakfast-club-links-unofficial" target="_blank" class="text-link"></a>
             </p>
             <div class="episodes-nav episodes-nav__border">
@@ -110,26 +104,27 @@
       Player,
       SocialSharing
     },
-    created: async function() {
+    mounted: async function() {
     const params = new URLSearchParams(window.location.search.substring(1));
-    const data = await fetch("./episode.json");
+    const data = await fetch("https://pbc.koduje.pl/episodes");
     const dataFromJson = await data.json();
-    const epLength = Number(dataFromJson.episodes.length);
+    const epLength = Number(dataFromJson.items.length);
 
     function objMatch(el) {
       return el.no === Number(epNumber);
     }
+
     const largestNo = Math.max(
       // ...foo => spread operator
-      ...dataFromJson.episodes.map(episode => episode.no),
+      ...dataFromJson.items.map(episode => episode.no),
       // Math.max(1,2,3,4,5,6,7,8,9,10,11);
     );
     const epNumber = Number(params.get("episode")) || largestNo;
     const hrefNext = `?episode=${epNumber + 1}`;
     const hrefPrev = `?episode=${epNumber - 1}`;
 
-    const latestEpisode = dataFromJson.episodes.find(episode => episode.no === largestNo);
-    const selectedEpisode = dataFromJson.episodes.find(objMatch);
+    const latestEpisode = dataFromJson.items.find(episode => episode.no === largestNo);
+    const selectedEpisode = dataFromJson.items.find(objMatch);
 
     if (epNumber <= epLength && epNumber != undefined && epNumber != undefined) {
       this.episode = selectedEpisode;
@@ -155,12 +150,18 @@
     this.loading = false;
 },
   methods: {
-    zeroPad(number) {
-      return Utils.zeroPad(number);
-      },
+    zeroPad(i) {
+      return Utils.zeroPad(i);
+    },
+    uri(str) {
+      return Utils.uri(str);
+    },
+    trimTitle(str) {
+      return Utils.trimTitle(str);
+    }
     },
     computed: {
-      shareLink: window.location.href
+      shareLink: () => window.location.href
     },
     data () {
       return {

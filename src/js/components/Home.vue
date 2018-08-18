@@ -40,19 +40,19 @@
     this.episodes = allEpisodes.items;
     },
     methods: {
-        // custom navigation
-        nextSlide() {
-          this.$refs.carousel.goToPage(this.$refs.carousel.getNextPage());
-        },
-        prevSlide() {
-          this.$refs.carousel.goToPage(this.$refs.carousel.getPreviousPage());
-        },
-        pageChange(i) {
-          // burdel.js
-          this.firstEpisode = false;
-          i === 0 ? this.firstEpisode = true : this.firstEpisode = false;
-          i === this.$refs.carousel.pageCount - 1 ? this.lastEpisode = true : this.lastEpisode = false;
-        }
+      // custom navigation
+      nextSlide() {
+        this.$refs.carousel.goToPage(this.$refs.carousel.getNextPage());
+      },
+      prevSlide() {
+        this.$refs.carousel.goToPage(this.$refs.carousel.getPreviousPage());
+      },
+      pageChange(i) {
+        // burdel.js
+        this.firstEpisode = false;
+        i === 0 ? this.firstEpisode = true : this.firstEpisode = false;
+        i === this.$refs.carousel.pageCount - 1 ? this.lastEpisode = true : this.lastEpisode = false;
+      }
     },
     computed: {
     },

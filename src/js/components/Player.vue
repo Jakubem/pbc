@@ -2,7 +2,7 @@
 <div class="audio-wrapper">
   <audio controls>
     <!-- safari will work only with wav, mp3 or flac. (according to this: https://hpr.dogphilosophy.net/test/)-->
-    <source src="http://www.music.helsinki.fi/tmt/opetus/uusmedia/esim/a2002011001-e02-ulaw.wav" type="audio/wav">
+    <source :src="src" type="audio/wav">
   </audio>
 </div>
 </template>
@@ -18,6 +18,7 @@
         episodes: [],
       }
     },
+    props: ['src']
   }
 </script>
 
