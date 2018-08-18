@@ -450,7 +450,7 @@ p {
 .btn-app {
   display: inline-block;
   width: 45%;
-  margin-right: 1rem;
+  // margin-right: 1rem;
   margin-bottom: 1rem;
   padding: 1rem 1.5rem;
   -webkit-box-align: center;
@@ -1636,6 +1636,7 @@ p {
     letter-spacing: 0.1px;
   }
   .header {
+    position: fixed;
     left: 0px;
     top: 0px;
     right: 0px;
