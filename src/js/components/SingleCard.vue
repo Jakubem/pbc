@@ -15,11 +15,15 @@
 </template>
 
 <script>
-  const lineClamp = require('line-clamp');
+  import lineClamp from 'line-clamp';
   export default {
-    mounted: function() {
-      // https://www.npmjs.com/package/line-clamp
-      lineClamp(this.$refs.clamp, 5);
+    mounted: async function() {
+      // https://www.npmjs.com/package/line-clamp => to review
+      // console.log(lineClamp);
+      // console.log(p);
+      await '';
+      const p = this.$refs.clamp;
+      lineClamp(p, 5);
     },
     props: ['obj'],
     data () {
