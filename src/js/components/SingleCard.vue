@@ -1,8 +1,12 @@
 <template>
   <div class="episode-block">
     <div class="eb__header">
-      <div class="eb__header-number-block">{{ obj.no }}</div>
-      <div class="eb__header-date">{{ obj.date }}</div>
+      <div class="eb__header-number-block">
+        {{ obj.no }}
+      </div>
+      <div class="eb__header-date">
+        {{ formatDate(obj.date) }}
+      </div>
     </div>
     <div class="eb__content">
       <h3>How to Scale Design Sprints in Organisations</h3>
@@ -18,6 +22,8 @@
 
 <script>
   import lineClamp from 'line-clamp';
+  import * as Utils from '../utils';
+
   export default {
     mounted: async function() {
       // https://www.npmjs.com/package/line-clamp => to review
@@ -28,6 +34,9 @@
     methods: {
       uri(str) {
         return decodeURIComponent(str)
+      },
+      formatDate(str) {
+        return Utils.formatDate(str);
       }
     },
     props: ['obj'],

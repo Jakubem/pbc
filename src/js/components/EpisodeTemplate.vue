@@ -156,6 +156,9 @@
     uri(str) {
       return Utils.uri(str);
     },
+    formatDate(str) {
+      return Utils.formatDate(str);
+    }
     // trimTitle(str) {
     //   return Utils.trimTitle(str);
     // }

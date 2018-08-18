@@ -1,3 +1,5 @@
+import * as Moment from 'moment';
+
 export function zeroPad(number) {
   let stringValue = String(number);
 
@@ -9,7 +11,11 @@ export function zeroPad(number) {
 };
 
 export function uri(str) {
-  return decodeURIComponent(str)
+  return decodeURIComponent(str);
+}
+
+export function formatDate(str) {
+  return Moment(str).format('MMM Do, YYYY');
 }
 
 // export function trimTitle(str) {

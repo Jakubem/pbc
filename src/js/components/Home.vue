@@ -67,7 +67,7 @@
 </script>
 <style>
     .VueCarousel-wrapper {
-        max-width: 1100px;
+        max-width: 1200px;
     }
     .VueCarousel {
         display: flex;
