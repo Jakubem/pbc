@@ -3,9 +3,13 @@
     <!-- bind this to screen width -->
     <div class="section-title">
       <h2>Latest episodes</h2>
-      <a href="episodes.html" class="text-link w-hidden-small w-hidden-tiny">View all episodes</a>
+      <a href="episodes.html" class="text-link w-hidden-small w-hidden-tiny">View all episodes
+      </a>
     </div>
-    <carousel v-if="episodes.length" ref="carousel" v-on:pageChange="pageChange" :perPageCustom="[[0, 1], [800, 2], [1100, 3]]">
+    <carousel v-if="episodes.length" 
+      ref="carousel" 
+      v-on:pageChange="pageChange" 
+      :perPageCustom="[[0, 1], [800, 2], [1100, 3]]">
       <slide v-for="episode in episodes" :key="episode.no">
         <single-card :obj="episode"></single-card>
       </slide>
