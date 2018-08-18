@@ -6,11 +6,7 @@
     </div>
     <div class="eb__content">
       <h3>How to Scale Design Sprints in Organisations</h3>
-      <p ref="clamp" class="p-card">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis
-        cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh
-        et justo cursus idrem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis
-        cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh
-        et justo cursus id</p>
+      <p ref="clamp" class="p-card">{{ decodeURIComponent(obj.content) }}</p>
     </div>
     <div class="eb__footer">
       <a href="episode-036.html" class="btn btn-text btn-text__card w-button">read more</a>
@@ -21,17 +17,13 @@
 <script>
   const lineClamp = require('line-clamp');
   export default {
-    mounted: async function() {
-    const data = await fetch("./episode.json");
-    const allEpisodes = await data.json();
-    this.episodes = allEpisodes.episodes;
-    // to zrobić
-    lineClamp(this.$refs.clamp, 5)
+    mounted: function() {
+      // https://www.npmjs.com/package/line-clamp
+      lineClamp(this.$refs.clamp, 5);
     },
     props: ['obj'],
     data () {
         return {
-            episodes: [],
       }
     },
 }

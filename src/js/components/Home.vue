@@ -5,9 +5,9 @@
       <h2>Latest episodes</h2>
       <a href="episodes.html" class="text-link w-hidden-small w-hidden-tiny">View all episodes</a>
     </div>
-    <carousel ref="carousel" v-on:pageChange="pageChange" :perPageCustom="[[0, 1], [800, 2], [1100, 3]]">
-      <slide v-for="episode in test" :key="episode.no">
-        <single-card :obj="test"></single-card>
+    <carousel v-if="episodes.length" ref="carousel" v-on:pageChange="pageChange" :perPageCustom="[[0, 1], [800, 2], [1100, 3]]">
+      <slide v-for="episode in episodes" :key="episode.no">
+        <single-card :obj="episode"></single-card>
       </slide>
     </carousel>
     <div class="arrow-navigation">
@@ -35,9 +35,9 @@
       Slide
     },
     mounted: async function() {
-    const data = await fetch("./episode.json");
+    const data = await fetch("https://pbc.koduje.pl/episodes");
     const allEpisodes = await data.json();
-    this.episodes = allEpisodes.episodes;
+    this.episodes = allEpisodes.items;
     },
     methods: {
         // custom navigation
@@ -59,14 +59,6 @@
     data () {
         return {
           episodes: [],
-          // test episodes
-          test: [
-            {no: 1},
-            {no: 2},
-            {no: 3},
-            {no: 4},
-            {no: 5}
-          ],
           firstEpisode: true,
           lastEpisode: false,
         }
