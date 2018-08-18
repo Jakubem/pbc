@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="eb__content">
-      <h3>How to Scale Design Sprints in Organisations</h3>
+      <h3>{{ obj.title }}</h3>
       <p ref="clamp" class="p-card">{{ uri(obj.content) }}</p>
     </div>
     <div class="eb__footer">
