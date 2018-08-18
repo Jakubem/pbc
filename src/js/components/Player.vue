@@ -29,9 +29,5 @@
     width: 100%;
     box-shadow: 5px 3px 7px rgba(0, 0, 0, 0.5);
     -webkit-appearance: none;
-    background-color: #ffb900;
-  }
-  audio::-webkit-media-controls-panel {
-    background-color: #ffb900;
   }
 </style>
