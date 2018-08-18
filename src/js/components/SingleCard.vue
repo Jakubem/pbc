@@ -1,5 +1,5 @@
 <template>
-  <div class="episode-block">
+  <div class="episode-block" role="link" @click="clickCard">
     <div class="eb__header">
       <div class="eb__header-number-block">
         {{ `#${zeroPad(obj.no)}` }}
@@ -14,6 +14,7 @@
     </div>
     <div class="eb__footer">
       <a 
+        ref="link"
         :href="`/episode.html?episode=${obj.no}`" 
         class="btn btn-text btn-text__card w-button">read more</a>
     </div>
@@ -41,6 +42,9 @@
       zeroPad(i) {
         return Utils.zeroPad(i);
       },
+      clickCard() {
+        this.$refs.link.click();
+      }
     },
     props: ['obj'],
     data () {
@@ -53,6 +57,7 @@
 <style scoped>
     .episode-block {
         margin-bottom: 30px;
+        cursor: pointer;
     }
 </style>
 
