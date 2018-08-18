@@ -9,7 +9,9 @@
       <p ref="clamp" class="p-card">{{ uri(obj.content) }}</p>
     </div>
     <div class="eb__footer">
-      <a :href="`/episode.html?episode=${obj.no}`" class="btn btn-text btn-text__card w-button">read more</a>
+      <a 
+        :href="`/episode.html?episode=${obj.no}`" 
+        class="btn btn-text btn-text__card w-button">read more</a>
     </div>
   </div>
 </template>
@@ -19,8 +21,9 @@
   export default {
     mounted: async function() {
       // https://www.npmjs.com/package/line-clamp => to review
+      await '';
       const p = this.$refs.clamp;
-      await lineClamp(p, 5);
+      lineClamp(p, 5);
     },
     methods: {
       uri(str) {
