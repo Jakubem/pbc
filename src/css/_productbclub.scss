@@ -10,12 +10,6 @@ body {
   font-weight: 400;
 }
 
-.episode-block {
-  display: flex;
-  flex-direction: column;
-}
-
-
 h1 {
   margin-top: 0px;
   margin-bottom: 1rem;
@@ -258,11 +252,12 @@ p {
 
 .episode-block {
   position: relative;
-
+  display: flex;
+  flex-direction: column;
   // jakub cccccchanges
   // max-width: 33.333%;
-  margin-right: 4px;
-  margin-left: 4px;
+  margin-right: 12px;
+  margin-left: 12px;
   padding-top: 0.5rem;
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
@@ -1295,6 +1290,8 @@ p {
     max-width: 100%;
     // margin-right: 0px;
     margin-bottom: 1.5rem;
+    margin-left: 4px;
+    margin-right: 4px;
     // margin-left: 0px;
   }
   .episode-block.s {
