@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="all-episodes">
     <div class="section-title">
       <h2>All episodes</h2>
     </div>
@@ -34,6 +34,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }
+  .all-episodes {
+    max-width: 1200px;
+    margin: 0 auto;
   }
   .episode-block {
     max-width: 350px;

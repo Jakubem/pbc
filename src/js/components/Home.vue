@@ -24,6 +24,8 @@
         <arrow-next-carousel></arrow-next-carousel>
       </a>
     </div>
+    <a href="episodes.html" class="text-link desktop-hidden">View all episodes
+    </a>
   </section>
 </template>
 
@@ -88,17 +90,23 @@
     }
 
     .section-title {
-      padding: 0 50px;
+      /* padding: 0 50px; */
     }
-    .arrow > .nav-arr {
+    .arrow {
       cursor: pointer;
+    }
+    .desktop-hidden {
+      display: none;
+      text-align: center;
     }
     /* 😓 */
     .arrow-navigation {
       width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       justify-content: flex-end;
-      padding: 0 50px;
+
     }
     .dimmed {
       opacity: 0.2;
@@ -109,7 +117,12 @@
         display: none;
       }
       .VueCarousel-wrapper {
-        padding: 0 50px;
+        padding: 0 30px;
       }
+    }
+    @media (max-width: 800px){
+      .desktop-hidden {
+        display: block;
+      } 
     }
 </style>

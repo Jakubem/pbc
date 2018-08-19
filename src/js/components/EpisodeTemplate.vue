@@ -74,7 +74,7 @@
                 class="btn btn-text w-button"
                 :aria-hidden="firstEpisode"
                 :class="{ 'disabled': firstEpisode }">
-                <arrow-prev></arrow-prev> Previous episode
+                <arrow-prev></arrow-prev> Previous
               </a>
               <a 
                 :href="hrefNext" 
@@ -82,7 +82,7 @@
                 :aria-hidden="lastEpisode"
                 class="btn btn-text w-button" 
                 :class="{ 'disabled': lastEpisode }">
-                Next episode <arrow-next></arrow-next>
+                Next <arrow-next></arrow-next>
               </a>
             </div>
           </div>
@@ -102,8 +102,8 @@
   import * as Utils from '../utils';
   export default {
     components: {
-      'arrow-next': ArrowNext,
-      'arrow-prev': ArrowPrev,
+      ArrowNext,
+      ArrowPrev,
       PulseLoader,
       Player,
       SocialSharing
