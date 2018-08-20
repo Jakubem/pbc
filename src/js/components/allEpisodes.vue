@@ -4,8 +4,10 @@
       <h2>All episodes</h2>
     </div>
     <div class="all-episodes-wrapper">
-      <single-card v-for="episode in episodes" :key="episode.no" :obj="episode">
-
+      <single-card 
+        v-for="episode in episodes" 
+        :key="episode.no" 
+        :obj="episode">
       </single-card>
     </div>
   </div>
@@ -18,9 +20,9 @@
       SingleCard,
     },
     mounted: async function() {
-    const data = await fetch("https://pbc.koduje.pl/episodes");
-    const allEpisodes = await data.json();
-    this.episodes = allEpisodes.items;
+      const data = await fetch("https://pbc.koduje.pl/episodes");
+      const allEpisodes = await data.json();
+      this.episodes = allEpisodes.items;
     },
     data () {
       return {
@@ -29,17 +31,34 @@
     },
 }
 </script>
+
 <style scoped>
   .all-episodes-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
   }
   .all-episodes {
     max-width: 1200px;
-    margin: 0 auto;
+    padding: 8px;
   }
   .episode-block {
     max-width: 350px;
+    min-width: 150px;
+  }
+  .section-title {
+    margin: 8px;
+  }
+
+  @media (max-width: 732px) {
+    .section-title {
+      margin: 4px;
+    }
+    .all-episodes-wrapper {
+      justify-content: center;
+    }
+    .episode-block {
+      max-width: unset;
+    }
   }
 </style>

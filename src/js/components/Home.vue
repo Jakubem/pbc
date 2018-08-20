@@ -3,28 +3,42 @@
     <!-- bind this to screen width -->
     <div class="section-title">
       <h2>Latest episodes</h2>
-      <a href="episodes.html" class="text-link w-hidden-small w-hidden-tiny">View all episodes
+      <a 
+        href="episodes.html" 
+        class="text-link w-hidden-small w-hidden-tiny">
+        View all episodes
       </a>
     </div>
     <carousel 
       v-if="episodes.length" 
       ref="carousel" 
       v-on:pageChange="pageChange" 
-      :perPageCustom="[[0, 1], [800, 2], [1100, 3]]"
+      :perPageCustom="[[0, 1], [600, 2], [1100, 3]]"
       :paginationEnabled="false">
-      <slide v-for="episode in episodes" :key="episode.no">
+      <slide 
+        v-for="episode in episodes" 
+        :key="episode.no">
         <single-card :obj="episode"></single-card>
       </slide>
     </carousel>
     <div class="arrow-navigation">
-      <a class="arrow" :class="{ 'dimmed': firstEpisode }" @click.prevent="prevSlide">
+      <a 
+        class="arrow" 
+        :class="{ 'dimmed': firstEpisode }" 
+        @click.prevent="prevSlide">
         <arrow-prev-carousel></arrow-prev-carousel>
       </a>
-      <a class="arrow" :class="{ 'dimmed': lastEpisode }" @click.prevent="nextSlide">
+      <a 
+        class="arrow" 
+        :class="{ 'dimmed': lastEpisode }" 
+        @click.prevent="nextSlide">
         <arrow-next-carousel></arrow-next-carousel>
       </a>
     </div>
-    <a href="episodes.html" class="text-link desktop-hidden">View all episodes
+    <a 
+      href="episodes.html" 
+      class="text-link desktop-hidden">
+      View all episodes
     </a>
   </section>
 </template>
@@ -73,6 +87,7 @@
       },
 }
 </script>
+
 <style>
     .VueCarousel-wrapper {
       max-width: 1200px;
@@ -88,10 +103,6 @@
       display: flex;
       align-items: stretch;
     }
-
-    .section-title {
-      /* padding: 0 50px; */
-    }
     .arrow {
       cursor: pointer;
     }
@@ -106,7 +117,12 @@
       margin: 0 auto;
       display: flex;
       justify-content: flex-end;
-
+    }
+    .section-title {
+      margin: 20px auto;
+    }
+    .text-link {
+      /* margin:  */
     }
     .dimmed {
       opacity: 0.2;
@@ -117,7 +133,7 @@
         display: none;
       }
       .VueCarousel-wrapper {
-        padding: 0 30px;
+        padding: 0 20px;
       }
     }
     @media (max-width: 800px){
