@@ -130,10 +130,10 @@
     const latestEpisode = dataFromJson.items.find(episode => episode.no === largestNo);
     const selectedEpisode = dataFromJson.items.find(objMatch);
 
+    document.title = `Product Breakfast Club | Episode #${this.zeroPad(epNumber)} | ${selectedEpisode.title}`;
+
     if (epNumber <= epLength && epNumber != undefined && epNumber != undefined) {
       this.episode = selectedEpisode;
-      // this line
-      // window.location.search = `?episode=${epNumber}`;
     } else {
       this.episode = latestEpisode;
       window.location.search = `?episode=${largestNo}`;

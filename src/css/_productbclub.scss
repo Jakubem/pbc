@@ -420,7 +420,7 @@ p {
 }
 
 .arrow {
-  margin-left: 1rem;
+  margin-right: 12px;
 }
 
 .arrow.arrow-disabled {
@@ -441,7 +441,9 @@ p {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: url('../images/ShapeTOP.svg'), url('../images/breakfast-plate.png');
+  background-image: 
+    url('../images/ShapeTOP.svg'), 
+    url('../images/breakfast-plate.png');
   background-position: 50% 0px, 0px 0px;
   background-size: 100%, auto 95%;
   background-repeat: no-repeat, no-repeat;
