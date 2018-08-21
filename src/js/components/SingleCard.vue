@@ -1,9 +1,7 @@
 <template>
-  <div 
+  <a
     class="episode-block" 
-    role="link" 
-    @mousedown="handleMouseDown"
-    @mouseup="handleMouseUp">
+    :href="`/episode.html?episode=${obj.no}`">
     <div class="eb__header">
       <div class="eb__header-number-block">
         {{ `#${zeroPad(obj.no)}` }}
@@ -19,10 +17,10 @@
     <div class="eb__footer">
       <a 
         ref="link"
-        :href="`/episode.html?episode=${obj.no}`" 
+        :href="`/episode.html?episode=${obj.no}`"
         class="btn btn-text btn-text__card w-button">read more</a>
     </div>
-  </div>
+  </a>
 </template>
 
 <script>
@@ -46,19 +44,19 @@
       zeroPad(i) {
         return Utils.zeroPad(i);
       },
-      clickCard() {
-        this.$refs.link.click();
-      },
-      handleMouseUp() {
-        this.isMouseDown = false;
-        if (new Date() - this.timer <= 100) {
-          this.clickCard();
-        }
-      },
-      handleMouseDown() {
-        this.isMouseDown = true;
-        this.timer = new Date();
-      }
+      // clickCard() {
+      //   this.$refs.link.click();
+      // },
+      // handleMouseUp() {
+      //   this.isMouseDown = false;
+      //   if (new Date() - this.timer <= 100) {
+      //     this.clickCard();
+      //   }
+      // },
+      // handleMouseDown() {
+      //   this.isMouseDown = true;
+      //   this.timer = new Date();
+      // }
     },
     props: ['obj'],
     data () {
@@ -74,6 +72,8 @@
     .episode-block {
         margin-bottom: 30px;
         cursor: pointer;
+        text-decoration: none;
+        color: black;
     }
 </style>
 
