@@ -40,7 +40,8 @@
   }
   .all-episodes {
     max-width: 1200px;
-    padding: 8px;
+    padding: 18px;
+    margin: 0 auto;
   }
   .episode-block {
     max-width: 350px;
@@ -50,7 +51,7 @@
     margin: 8px;
   }
 
-  @media (max-width: 732px) {
+  @media (max-width: 800px) {
     .section-title {
       margin: 4px;
     }
