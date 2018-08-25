@@ -85,6 +85,7 @@
                 Next <arrow-next></arrow-next>
               </a>
             </div>
+            <div id="disqus_thread"></div>
           </div>
           <!-- <div class="col"></div> -->
         </div>
@@ -151,6 +152,8 @@
       this.firstEpisode = true;
     }
 
+
+    this.setupDisqus(this.episode);
     this.loading = false;
 },
   methods: {
@@ -162,6 +165,18 @@
     },
     formatDate(str) {
       return Utils.formatDate(str);
+    },
+    setupDisqus() {
+      var disqus_config = function (episode) {
+        this.page.url = 'https://www.productbreakfastclub.com/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = episode.no ; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://productbreakfastclub.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
     }
     // trimTitle(str) {
     //   return Utils.trimTitle(str);
