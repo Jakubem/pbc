@@ -169,7 +169,7 @@
     setupDisqus() {
       var disqus_config = function (episode) {
         this.page.url = 'https://www.productbreakfastclub.com/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = episode.no ; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.identifier = episode.no; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
       };
       (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
