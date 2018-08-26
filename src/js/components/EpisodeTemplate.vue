@@ -178,9 +178,6 @@
         (d.head || d.body).appendChild(s);
       })();
     }
-    // trimTitle(str) {
-    //   return Utils.trimTitle(str);
-    // }
   },
   computed: {
     shareLink: () => window.location.href

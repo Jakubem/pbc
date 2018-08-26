@@ -10,13 +10,13 @@
       </a>
     </div>
     <carousel 
-      v-if="episodes.length" 
+      v-if="episodes.length"
       ref="carousel" 
       v-on:pageChange="pageChange" 
       :perPageCustom="[[0, 1], [600, 2], [1100, 3]]"
       :paginationEnabled="false">
       <slide 
-        v-for="episode in episodes" 
+        v-for="episode in episodes.slice(0, 9)"
         :key="episode.no">
         <single-card :obj="episode"></single-card>
       </slide>
