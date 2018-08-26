@@ -1625,8 +1625,16 @@ p {
     padding-left: 1rem;
   }
   .apps {
-    background-image: url('../images/Subtractr.svg'), -webkit-linear-gradient(270deg, hsla(0, 0%, 100%, .4), hsla(0, 0%, 100%, .4)), url('../images/breakfast-plate.png');
-    background-image: url('../images/Subtractr.svg'), linear-gradient(180deg, hsla(0, 0%, 100%, .4), hsla(0, 0%, 100%, .4)), url('../images/breakfast-plate.png');
+    background-image: 
+      url('../images/Subtractr.svg'), 
+      -webkit-linear-gradient(270deg, hsla(0, 0%, 100%, .4), 
+      hsla(0, 0%, 100%, .4)), 
+      url('../images/breakfast-plate.png');
+    background-image: 
+      url('../images/Subtractr.svg'), 
+      linear-gradient(180deg, hsla(0, 0%, 100%, .4), 
+      hsla(0, 0%, 100%, .4)), 
+      url('../images/breakfast-plate.png');
     background-position: 50% 0px, 0px 0px, 50% -314px;
     background-size: 960px, auto, 600px;
     background-repeat: no-repeat, repeat, no-repeat;

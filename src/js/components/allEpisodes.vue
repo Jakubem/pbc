@@ -1,7 +1,7 @@
 <template>
   <div class="all-episodes">
     <div class="section-title">
-      <h2>All episodes</h2>
+      <h2 class="all-episodes__header">All episodes</h2>
     </div>
     <div class="all-episodes-wrapper">
       <scale-loader 
@@ -73,6 +73,11 @@
     }
     .episode-block {
       max-width: unset;
+    }
+  }
+  @media (max-width: 600px) {
+    .all-episodes__header {
+      margin: 24px 0;
     }
   }
 </style>

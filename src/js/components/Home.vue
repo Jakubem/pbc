@@ -148,5 +148,8 @@
       .eb__content-h3 {
         text-align: center;
       }
+      .section-title h2 {
+        margin: 24px 20px;
+      }
     }
 </style>
