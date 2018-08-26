@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="eb__content">
-      <h3>{{ obj.title }}</h3>
+      <h3 class="eb__content-h3">{{ obj.title }}</h3>
       <p ref="clamp" class="p-card">{{ uri(obj.content) }}</p>
     </div>
     <div class="eb__footer">
@@ -45,7 +45,7 @@
         return Utils.zeroPad(i);
       },
       // clickCard() {
-      //   this.$refs.link.click();
+      //  this.$refs.link.click();
       // },
       // handleMouseUp() {
       //   this.isMouseDown = false;

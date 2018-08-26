@@ -23,7 +23,7 @@
     </carousel>
     <div class="arrow-navigation">
       <a 
-        class="arrow" 
+        class="arrow"
         :class="{ 'dimmed': firstEpisode }" 
         @click.prevent="prevSlide">
         <arrow-prev-carousel></arrow-prev-carousel>
@@ -141,9 +141,12 @@
         padding: 0 20px;
       }
     }
-    @media (max-width: 800px){
+    @media (max-width: 600px){
       .desktop-hidden {
         display: block;
-      } 
+      }
+      .eb__content-h3 {
+        text-align: center;
+      }
     }
 </style>
