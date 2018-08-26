@@ -15,7 +15,7 @@
       <p ref="clamp" class="p-card">{{ uri(obj.content) }}</p>
     </div>
     <div class="eb__footer">
-      <a 
+      <a
         ref="link"
         :href="`/episode.html?episode=${obj.no}`"
         class="btn btn-text btn-text__card w-button">read more</a>

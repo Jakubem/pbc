@@ -4,7 +4,13 @@
       <h2>All episodes</h2>
     </div>
     <div class="all-episodes-wrapper">
+      <scale-loader 
+        v-if="!loaded"
+        color="#ffb900"
+        size="40px">
+      </scale-loader>
       <single-card 
+        v-if="loaded"
         v-for="episode in episodes" 
         :key="episode.no" 
         :obj="episode">
@@ -14,19 +20,23 @@
 </template>
 
 <script>
+  import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue';
   import SingleCard from './SingleCard.vue';
   export default {
     components: {
       SingleCard,
+      ScaleLoader,
     },
     mounted: async function() {
-      const data = await fetch("https://pbc.koduje.pl/episodes");
-      const allEpisodes = await data.json();
-      this.episodes = allEpisodes.items;
+        const data = await fetch("https://pbc.koduje.pl/episodes");
+        const allEpisodes = await data.json();
+        this.episodes = allEpisodes.items;
+        this.loaded = true;
     },
     data () {
       return {
         episodes: [],
+        loaded: false
       }
     },
 }
@@ -49,6 +59,9 @@
   }
   .section-title {
     margin: 8px;
+  }
+  .v-spinner {
+    margin: 0 auto;
   }
 
   @media (max-width: 800px) {
