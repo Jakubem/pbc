@@ -1,7 +1,7 @@
 <template>
   <div>
-    <pulse-loader v-if="loading === true" color="#ffb900" size="40px">
-    </pulse-loader>
+    <scale-loader v-if="loading === true" color="#ffb900" size="40px">
+    </scale-loader>
     <div v-if="loading === false" class="header-episode">
       <div class="container">
         <a href="episodes.html" class="text-link breadcrumbs">Back to All Episodes</a>
@@ -97,7 +97,7 @@
 <script>
   import ArrowNext from './svgComponents/ArrowNext.vue';
   import ArrowPrev from './svgComponents/ArrowPrev.vue';
-  import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
+  import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue';
   import Player from './Player.vue';
   import SocialSharing from 'vue-social-sharing'
   import * as Utils from '../utils';
@@ -105,7 +105,7 @@
     components: {
       ArrowNext,
       ArrowPrev,
-      PulseLoader,
+      ScaleLoader,
       Player,
       SocialSharing
     },
