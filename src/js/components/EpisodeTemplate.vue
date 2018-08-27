@@ -27,16 +27,16 @@
               <div class="episode-apps-icons">
                 <a href="https://itunes.apple.com/de/podcast/the-product-breakfast-club/id1320916842?l=en&amp;mt=2&amp;i=1000395595606" target="_blank"
                   class="icon-link w-inline-block">
-                  <img src="images/itunes-icon.svg" class="app-icon">
+                  <img alt="itunes" src="images/itunes-icon.svg" class="app-icon">
                 </a>
                 <a href="https://open.spotify.com/show/1qvzYYHQko5sMuKWmoundZ?si=hzuKMuYlRciD3M-6IjfCoQ" target="_blank" class="icon-link w-inline-block">
-                  <img src="images/Spotify-Icon.svg" class="app-icon">
+                  <img alt="spotify" src="images/Spotify-Icon.svg" class="app-icon">
                 </a>
                 <a href="https://soundcloud.com/ajsmartdesign" target="_blank" class="icon-link w-inline-block">
-                  <img src="images/RadioPublic-Logo.png" class="app-icon">
+                  <img alt="Radio Public" src="images/RadioPublic-Logo.png" class="app-icon">
                 </a>
                 <a href="https://www.stitcher.com/podcast/the-product-breakfast-club?refid=stpr" target="_blank" class="w-inline-block">
-                  <img src="images/stitcher-icon.png" class="app-icon">
+                  <img alt="sticher" src="images/stitcher-icon.png" class="app-icon">
                 </a>
               </div>
             </div>
@@ -51,7 +51,7 @@
                 </social-sharing>
                 <social-sharing :url="shareLink" inline-template>
                   <network network="facebook">
-                    <img src="images/facebook-letter-logo.svg" class="card-icon share-icon">
+                    <img alt="facebook" src="images/facebook-letter-logo.svg" class="card-icon share-icon">
                   </network>
                 </social-sharing>
             </div>
@@ -65,7 +65,7 @@
           <div class="col-15p"></div>
           <div class="col-70p">
             <p class="p-large">{{ uri(episode.content) }}
-              <a href="https://medium.com/product-breakfast-club-links-unofficial" target="_blank" class="text-link"></a>
+              <a title="medium" href="https://medium.com/product-breakfast-club-links-unofficial" target="_blank" class="text-link"></a>
             </p>
             <div class="episodes-nav episodes-nav__border">
               <a 

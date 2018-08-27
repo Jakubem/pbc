@@ -31,13 +31,15 @@
         class="arrow"
         :class="{ 'dimmed': firstEpisode }" 
         @click.prevent="prevSlide">
-        <arrow-prev-carousel></arrow-prev-carousel>
+        <arrow-prev-carousel>
+        </arrow-prev-carousel>
       </a>
       <a 
         class="arrow" 
         :class="{ 'dimmed': lastEpisode }" 
         @click.prevent="nextSlide">
-        <arrow-next-carousel></arrow-next-carousel>
+        <arrow-next-carousel>
+        </arrow-next-carousel>
       </a>
     </div>
     <a 
@@ -142,7 +144,11 @@
       opacity: 0.2;
     }
     /* burdel.css */
-    @media screen and (max-width: 1101px){      
+    @media screen and (max-width: 1101px){
+      .section-title h2,
+      .section-title .text-link {
+        margin: 0 24px;
+      }
       .arrow {
         display: none;
       }
@@ -158,7 +164,7 @@
         text-align: center;
       }
       .section-title h2 {
-        margin: 24px 20px;
+        margin: 0 24px;
       }
     }
 </style>
