@@ -1,6 +1,5 @@
 <template>
   <section class="episodes">
-    <!-- bind this to screen width -->
     <div class="section-title">
       <h2>Latest episodes</h2>
       <a 
@@ -9,8 +8,13 @@
         View all episodes
       </a>
     </div>
+    <scale-loader 
+      v-if="!loaded"
+      color="#ffb900"
+      size="40px">
+    </scale-loader>
     <carousel 
-      v-if="episodes.length"
+      v-if="loaded"
       ref="carousel" 
       v-on:pageChange="pageChange" 
       :perPageCustom="[[0, 1], [600, 2], [1100, 3]]"
@@ -18,7 +22,8 @@
       <slide 
         v-for="episode in episodes.slice(0, 9)"
         :key="episode.no">
-        <single-card :obj="episode"></single-card>
+        <single-card :obj="episode">
+        </single-card>
       </slide>
     </carousel>
     <div class="arrow-navigation">
@@ -44,15 +49,17 @@
 </template>
 
 <script>
+  import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue';
   import { Carousel, Slide } from 'vue-carousel';
   import SingleCard from './SingleCard.vue';
   import ArrowNextCarousel from './svgComponents/ArrowNextCarousel.vue';
   import ArrowPrevCarousel from './svgComponents/ArrowPrevCarousel.vue';
   export default {
     components: {
-      'single-card': SingleCard,
-      'arrow-next-carousel': ArrowNextCarousel,
-      'arrow-prev-carousel': ArrowPrevCarousel,
+      SingleCard,
+      ArrowNextCarousel,
+      ArrowPrevCarousel,
+      ScaleLoader,
       Carousel,
       Slide
     },
@@ -60,6 +67,7 @@
     const data = await fetch("https://pbc.koduje.pl/episodes");
     const allEpisodes = await data.json();
     this.episodes = allEpisodes.items;
+    this.loaded = true;
     },
     methods: {
       // custom navigation
@@ -87,6 +95,7 @@
           episodes: [],
           firstEpisode: true,
           lastEpisode: false,
+          loaded: false,
         }
       },
 }

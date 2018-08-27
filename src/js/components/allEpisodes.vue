@@ -36,7 +36,7 @@
     data () {
       return {
         episodes: [],
-        loaded: false
+        loaded: false,
       }
     },
 }
