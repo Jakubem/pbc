@@ -8,7 +8,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const PATHS = {
-  src: path.join(__dirname, 'src'),
+  src: path.join(__dirname, '../src'),
 }
 
 const minify = {
@@ -129,11 +129,6 @@ module.exports = {
         from: 'src/js/productbclub.js',
         to: 'productbclub.js'
       },
-      // for now
-      {
-        from: 'src/js/episode.json',
-        to: 'episode.json'
-      }
     ]),
     new MiniCssExtractPlugin({
       filename: "bundle.css",
