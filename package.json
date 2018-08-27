@@ -4,8 +4,9 @@
   "description": "the product breakfast club website",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server  --watch -d",
-    "prod": "webpack -p"
+    "dev": "webpack-dev-server -d --watch --config webpack/webpack.dev.js",
+    "lighthouse": "lighthouse --view",
+    "prod": "webpack -p --config webpack/webpack.dev.js"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
   },
   "dependencies": {
     "babel-preset-vue-app": "^2.0.0",
+    "lighthouse": "^3.0.3",
     "line-clamp": "0.0.8",
     "moment": "^2.22.2",
     "vue-carousel": "^0.10.0",
