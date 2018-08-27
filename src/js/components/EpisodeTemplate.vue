@@ -1,8 +1,8 @@
 <template>
   <div>
-    <scale-loader v-if="loading === true" color="#ffb900" size="40px">
+    <scale-loader v-if="!loaded" color="#ffb900" size="40px">
     </scale-loader>
-    <div v-if="loading === false" class="header-episode">
+    <div v-if="loaded" class="header-episode">
       <div class="container">
         <a href="episodes.html" class="text-link breadcrumbs">Back to All Episodes</a>
         <div class="grid">
@@ -59,7 +59,7 @@
         </div>
       </div>
     </div>
-    <div v-if="loading === false" class="episode-info">
+    <div v-if="loaded" class="episode-info">
       <div class="container container__episode-info">
         <div class="grid">
           <div class="col-15p"></div>
@@ -154,7 +154,7 @@
 
 
     this.setupDisqus(this.episode);
-    this.loading = false;
+    this.loaded = true;
 },
   methods: {
     zeroPad(i) {
@@ -189,7 +189,7 @@
       hrefNext: '',
       lastEpisode: false,
       firstEpisode: false,
-      loading: true
+      loaded: false
     }
   },
 }
