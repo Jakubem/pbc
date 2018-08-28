@@ -27,7 +27,7 @@ const minify = {
 module.exports = {
   entry: "./src/js/main.js",
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: 'bundle.js'
   },
   // turn on for production deploy
