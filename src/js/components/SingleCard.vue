@@ -44,19 +44,6 @@
       zeroPad(i) {
         return Utils.zeroPad(i);
       },
-      // clickCard() {
-      //  this.$refs.link.click();
-      // },
-      // handleMouseUp() {
-      //   this.isMouseDown = false;
-      //   if (new Date() - this.timer <= 100) {
-      //     this.clickCard();
-      //   }
-      // },
-      // handleMouseDown() {
-      //   this.isMouseDown = true;
-      //   this.timer = new Date();
-      // }
     },
     props: ['obj'],
     data () {
