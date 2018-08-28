@@ -1,6 +1,6 @@
 ## [The Product Breakfast Club](https://open.spotify.com/show/1qvzYYHQko5sMuKWmoundZ) website project
 
-This website is using REST API By [Wojciech Połowniak](https://github.com/Worie/pbc-api)
+This website is using REST API By [Wojciech Połowniak](https://github.com/Worie/pbc-api) to automatically generate content from latest Product Breakfast Club publications.
 
 ### Development:
 > `npm i` - install dependencies <br>
