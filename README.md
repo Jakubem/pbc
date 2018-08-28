@@ -7,10 +7,6 @@ This website is using REST API By [Wojciech Połowniak](https://github.com/Worie
 > `npm run dev` - Compile frontend and start local dev server<br>
 > `npm run lighthouse [Your URL]` - Run [Lighthouse](https://github.com/GoogleChrome/lighthouse) on given URL<br>
 
-### Directory structure:
-- `master` - original layouts by [Mateusz Wierzbicki](http://www.mateuszwierzbicki.pl),
-- `js/components` - Vue components,
-
 ### How to use
 Upload compiled files to your static file hosting.
 
