@@ -134,7 +134,7 @@
       justify-content: flex-end;
     }
     .section-title {
-      margin: 20px auto;
+      margin: 24px auto;
     }
     .section-title h2,
     .section-title .text-link {
@@ -147,7 +147,7 @@
     @media screen and (max-width: 1101px){
       .section-title h2,
       .section-title .text-link {
-        margin: 0 24px;
+        margin: 0 32px;
       }
       .arrow {
         display: none;
@@ -156,7 +156,7 @@
         padding: 0 20px;
       }
     }
-    @media (max-width: 600px){
+    @media (max-width: 800px){
       .desktop-hidden {
         display: block;
       }
