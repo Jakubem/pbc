@@ -54,7 +54,7 @@ module.exports = {
         // include: [resolve('js'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
-        test: /\.(png|jpg|gif|svg|ttf)$/,
+        test: /\.(png|jpg|gif|svg|ttf|webp)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
