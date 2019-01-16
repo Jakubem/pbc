@@ -133,7 +133,7 @@
 
     document.title = `Product Breakfast Club | Episode #${this.zeroPad(epNumber)} | ${selectedEpisode.title}`;
 
-    if (epNumber <= epLength && epNumber != undefined && epNumber != undefined) {
+    if (epNumber - 1 <= epLength && epNumber != undefined && epNumber != undefined) {
       this.episode = selectedEpisode;
     } else {
       this.episode = latestEpisode;
@@ -166,18 +166,18 @@
     formatDate(str) {
       return Utils.formatDate(str);
     },
-    // setupDisqus() {
-    //   var disqus_config = function (episode) {
-    //     this.page.url = 'https://www.productbreakfastclub.com/';  // Replace PAGE_URL with your page's canonical URL variable
-    //     this.page.identifier = episode.no; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    //   };
-    //   (function() { // DON'T EDIT BELOW THIS LINE
-    //     var d = document, s = d.createElement('script');
-    //     s.src = 'https://productbreakfastclub.disqus.com/embed.js';
-    //     s.setAttribute('data-timestamp', +new Date());
-    //     (d.head || d.body).appendChild(s);
-    //   })();
-    // }
+    setupDisqus() {
+      var disqus_config = function (episode) {
+        this.page.url = 'https://www.productbreakfastclub.com/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = episode.no; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://productbreakfastclub.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    }
   },
   computed: {
     shareLink: () => window.location.href
