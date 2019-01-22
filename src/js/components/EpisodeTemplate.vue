@@ -72,16 +72,16 @@
                 :href="hrefPrev" 
                 rel="prev" 
                 class="btn btn-text w-button"
-                :aria-hidden="firstEpisode"
-                :class="{ 'disabled': firstEpisode }">
+                :aria-hidden="isEmptyUrl(hrefPrev)"
+                :class="{ 'disabled': isEmptyUrl(hrefPrev) }">
                 <arrow-prev></arrow-prev> Previous
               </a>
               <a 
                 :href="hrefNext" 
                 rel="next" 
-                :aria-hidden="lastEpisode"
+                :aria-hidden="isEmptyUrl(hrefNext)"
                 class="btn btn-text w-button" 
-                :class="{ 'disabled': lastEpisode }">
+                :class="{ 'disabled': isEmptyUrl(hrefNext) }">
                 Next <arrow-next></arrow-next>
               </a>
             </div>
@@ -125,31 +125,32 @@
       // Math.max(1,2,3,4,5,6,7,8,9,10,11);
     );
     const epNumber = Number(params.get("episode")) || largestNo;
-    const hrefNext = `?episode=${epNumber + 1}`;
-    const hrefPrev = `?episode=${epNumber - 1}`;
+    const episodesIds = dataFromJson.items
+      .map(episode => episode.no)
+      .sort((a,b) => a - b);
+    
+    const episodeIndex = episodesIds.indexOf(Number(epNumber));
+    const nextEpisode = episodesIds[episodeIndex + 1];
+    const previousEpisode = episodesIds[episodeIndex -1];
 
     const latestEpisode = dataFromJson.items.find(episode => episode.no === largestNo);
     const selectedEpisode = dataFromJson.items.find(objMatch);
 
+    if (!selectedEpisode || selectedEpisode === null) {
+      window.location.href = `/404.html`;
+      return;
+    } else {
+      this.episode = selectedEpisode;
+    }
+
     document.title = `Product Breakfast Club | Episode #${this.zeroPad(epNumber)} | ${selectedEpisode.title}`;
 
-    if (epNumber - 1 <= epLength && epNumber != undefined && epNumber != undefined) {
-      this.episode = selectedEpisode;
-    } else {
-      this.episode = latestEpisode;
-      window.location.search = `?episode=${largestNo}`;
+    
+    if (previousEpisode) {
+      this.hrefPrev = `?episode=${previousEpisode}`;
     }
-    if (selectedEpisode.no < largestNo) {
-      this.hrefNext = hrefNext;
-    }
-    if (selectedEpisode.no > 1) {
-      this.hrefPrev = hrefPrev;
-    }
-    if (selectedEpisode.no === largestNo) {
-      this.lastEpisode = true;
-    }
-    if (selectedEpisode.no === 1) {
-      this.firstEpisode = true;
+    if (nextEpisode) {
+      this.hrefNext = `?episode=${nextEpisode}`;
     }
 
 
@@ -159,6 +160,12 @@
   methods: {
     zeroPad(i) {
       return Utils.zeroPad(i);
+    },
+    isEmptyUrl(url) {
+      if (!url || url === '#') {
+        return true;
+      }
+      return false;
     },
     uri(str) {
       return Utils.uri(str);
@@ -185,10 +192,8 @@
   data () {
     return {
       episode: {},
-      hrefPrev: '',
-      hrefNext: '',
-      lastEpisode: false,
-      firstEpisode: false,
+      hrefPrev: '#',
+      hrefNext: '#',
       loaded: false
     }
   },
