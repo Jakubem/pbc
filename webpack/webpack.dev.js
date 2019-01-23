@@ -117,6 +117,12 @@ module.exports = {
       template: './src/views/episode.html',
       filename: './episode.html'
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      minify: minify,
+      template: './src/views/404.html',
+      filename: './404.html'
+    }),
     new CopyWebpackPlugin([{
         from: 'src/fonts',
         to: 'fonts'
