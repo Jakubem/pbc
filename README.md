@@ -2,6 +2,8 @@
 
 This website is using REST API By [Wojciech Połowniak](https://github.com/Worie/pbc-api) to automatically generate content from latest Product Breakfast Club publications.
 
+live demo: [vue-poc.jakubemfoto.pl](https://vue-poc.jakubemfoto.pl)
+
 ### Development:
 > `npm i` - install dependencies <br>
 > `npm run dev` - Compile frontend and start local dev server<br>
